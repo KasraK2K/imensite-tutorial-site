@@ -1,0 +1,66 @@
+extends ../layout
+
+block head
+    // bootstrap multiselect
+    link(rel="stylesheet" href="/admin/plugins/bootstrap-multiselect/bootstrap-multiselect.css")
+
+    style.
+        .multiselect-native-select .btn-group {
+            margin-right: 10px;
+        }
+        ul.multiselect-container.dropdown-menu li a {
+            float: right;
+        }
+        ul.multiselect-container.dropdown-menu li a label {
+            padding: 3px 10px 3px 10px;
+        }
+        span.multiselect-selected-text {
+            font-family: 'Vazir', sans-serif !important;
+        }
+        button.multiselect.dropdown-toggle::after {
+            margin-bottom: -4px;
+        }
+        ul {
+            list-style: none;
+        }
+
+block content
+    // Content Header (Page header)
+    .content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1.m-0.text-dark #{pageTitle}
+                // .col end
+                .col-sm-6
+                    ol.breadcrumb.float-sm-left
+                        li.breadcrumb-item
+                            a(href="#") خانه
+                        li.breadcrumb-item.active #{pageTitle}
+    section.content
+        .container
+            .row
+                .col
+                    .card
+                        .card-header.bg-info.border-transparent
+                            h3.card-title #{pageTitle}
+                            .card-tools
+                                button.btn.btn-tool(type="button" data-widget="collapse")
+                                    i.fa.fa-minus
+                        // .card-header end
+                        .card-body
+                            if errors
+                                .alert.alert-danger.alert-dismissible.fade.show
+                                    ul.m-0.p-0
+                                        each error in errors
+                                            li=error.msg
+                                    button.close.p-2(type="button" data-dismiss="alert" aria-label="Close")
+                                        span(aria-hidden="true") &times;
+                            form(action="/dashboard/category/create" method="POST")
+                                .form-group
+                                    label(for="inputPostTitle") نام دسته‌بندی
+                                    input#inputPostTitle.form-control(name="name" type="text" placeholder="حداقل ۵ حرف" value=(name) ? name : "" required)
+                                .form-group
+                                    label(for="inputPostSlug") نامک دسته‌بندی
+                                    input#inputPostSlug.form-control(name="slug" type="text" placeholder="نامک-دسته-بندی-جدید" value=(slug) ? slug : "")
+                                button.btn.btn-sm.btn-success(type="submit") ایجاد دسته‌بندی

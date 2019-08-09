@@ -1,0 +1,91 @@
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .card-body {
+    min-height: 152px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .nav-item {
+    &:not(:first-child) {
+      margin-right: 15px;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .course_search {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .footer_col:not(:last-child) {
+    margin-bottom: 80px;
+  }
+
+  .single-feature {
+    margin-bottom: 30px;
+  }
+  .single-feature .title {
+    background: $orange;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .course_search_form > div {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+
+
+
+
+/* OWL Carousel Next & Preview */
+@media (max-width: 1433px) {
+  button.owl-next {
+    left: -100px;
+  }
+  button.owl-prev {
+    right: -100px;
+  }
+}
+@media (max-width: 1311px) {
+  button.owl-next {
+    left: -40px;
+  }
+  button.owl-prev {
+    right: -40px;
+  }
+}
+@media (max-width: 1199px) {
+  button.owl-next {
+    left: -80px;
+  }
+  button.owl-prev {
+    right: -80px;
+  }
+}
+@media (max-width: 1091px) {
+  button.owl-next {
+    left: -40px;
+  }
+  button.owl-prev {
+    right: -40px;
+  }
+}
+@media (max-width: 1011px) {
+  button.owl-next {
+    display: none;
+  }
+  button.owl-prev {
+    display: none;
+  }
+}

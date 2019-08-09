@@ -1,0 +1,157 @@
+extends ../layout
+
+block head
+    // bootstrap multiselect
+    link(rel="stylesheet" href="/admin/plugins/bootstrap-multiselect/bootstrap-multiselect.css")
+
+    style.
+        .multiselect-native-select .btn-group {
+            margin-right: 10px;
+        }
+        ul.multiselect-container.dropdown-menu li a {
+            float: right;
+        }
+        ul.multiselect-container.dropdown-menu li a label {
+            padding: 3px 10px 3px 10px;
+        }
+        span.multiselect-selected-text {
+            font-family: 'Vazir', sans-serif !important;
+        }
+        button.multiselect.dropdown-toggle::after {
+            margin-bottom: -4px;
+        }
+        ul {
+            list-style: none;
+        }
+        /*#messages {*/
+            /*list-style-type: none;*/
+            /*margin: 0;*/
+            /*padding: 0;*/
+        /*}*/
+
+        /*#messages li {*/
+            /*padding: 10px;*/
+        /*}*/
+        /*#messages li:not(:last-child) {*/
+            /*margin-bottom: 15px;*/
+        /*}*/
+        /*#messages li:nth-child(odd) {*/
+            /*background: rgba(35, 146, 61, .1);*/
+            /*border-radius: 5px;*/
+            /*border: 1px solid rgba(35, 146, 61, .2);*/
+            /*box-shadow: 0 0 5px rgba(36, 145, 62, 0.3);*/
+            /*color: rgb(35, 135, 61);*/
+            /*width: auto;*/
+            /*max-width: 70%;*/
+            /*float: right;*/
+            /*clear: both;*/
+        /*}*/
+        /*#messages li:nth-child(even) {*/
+            /*background: rgba(20, 142, 161, .1);*/
+            /*border-radius: 5px;*/
+            /*border: 1px solid rgba(20, 142, 161, .2);*/
+            /*box-shadow: 0 0 5px rgba(20, 141, 160, 0.3);*/
+            /*color: rgb(20, 131, 150);*/
+            /*width: auto;*/
+            /*max-width: 70%;*/
+            /*float: left;*/
+            /*clear: both;*/
+        /*}*/
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #messages li {
+            padding: 5px 10px;
+        }
+
+        #messages li:nth-child(odd) {
+            background: #eee;
+        }
+
+block content
+    // Content Header (Page header)
+    .content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1.m-0.text-dark #{pageTitle}
+                // .col end
+                .col-sm-6
+                    ol.breadcrumb.float-sm-left
+                        li.breadcrumb-item
+                            a(href="#") خانه
+                        li.breadcrumb-item.active #{pageTitle}
+    section.content
+        .container
+            .row.mb-3
+                .col
+                    .card
+                        .card-header.bg-info.border-transparent
+                            h3.card-title اطلاعات شناسایی کاربر
+                            .card-tools
+                                button.btn.btn-tool(type="button" data-widget="collapse")
+                                    i.fa.fa-minus
+                        // .card-header end
+                        .card-body
+                            form#userInfo(action="")
+                                .form-group
+                                    label(for="userSupportEmail") ایمیل
+                                    input#userSupportEmail.form-control(name="name" type="text" autocomplete="off" placeholder="لطفا ایمیل خود را وارد کنید.")
+                                .form-group
+                                    label(for="userSupportPass") رمز عبور
+                                    input#userSupportPass.form-control(name="password" type="password" autocomplete="off" placeholder="لطفا رمز عبور خود را وارد کنید.")
+                                button.btn.btn-primary(type="submit") ورود
+            .row
+                .col
+                    .card
+                        .card-header.bg-info.border-transparent
+                            h3.card-title بخش چت برای دریافت پشتیبانی
+                            .card-tools
+                                button.btn.btn-tool(type="button" data-widget="collapse")
+                                    i.fa.fa-minus
+                        // .card-header end
+                        .card-body
+                            ul#messages.p-2(style="width: 100%; height: 500px; overflow-y: auto;")
+                                // my sent message come's here
+                        .card-footer
+                            form(action="")
+                                .input-group
+                                    .input-group-prepend
+                                        button#sendMessage.btn.btn-danger(type="submit") ارسال پیام
+                                    input#inputSupportTitle.form-control(name="name" type="text" autocomplete="off" placeholder="پیام خود را در اینجا بنویسید.")
+block footer
+    // Bootstrap Multiselect
+    script(src="/admin/plugins/bootstrap-multiselect/bootstrap-multiselect.js")
+    script(type="text/javascript").
+        $(document).ready(function () {
+            $('#inputSupportCategory').multiselect();
+        });
+    // socket.io
+    script(src="/socket.io/socket.io.js")
+    //script(type="text/javascript") var socket = io();
+    script.
+        $(function () {
+            var socket = io();
+
+            $('#userInfo').submit(function (e) {
+                e.preventDefault(); // prevents page reloading
+                var userinfo = {
+                    email: $('#userSupportEmail').val(),
+                    password: $('#userSupportPass').val()
+                }
+                socket.emit('user send info', userinfo);
+            })
+
+            $('form').submit(function(e){
+                e.preventDefault(); // prevents page reloading
+                socket.emit('chat message', $('#inputSupportTitle').val());
+                $('#inputSupportTitle').val('');
+                return false;
+            });
+            socket.on('chat message', function (msg) {
+                $('#messages').append($('<li>').text(msg));
+            });
+        });

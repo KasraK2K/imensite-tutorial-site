@@ -1,0 +1,606 @@
+doctype html
+html(lang=language dir="rtl")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(http-equiv="x-ua-compatible" content="ie=edge")
+        title
+            if (pageTitle)
+                | #{pageTitle}
+            else
+                | no title
+
+        //Favicon
+        link(rel="icon" href="/images/favicon.ico" sizes="any")
+
+        //Fontawesome
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css")
+        //Bootstrap RTL core CSS
+        //link(rel="stylesheet" href="assets/css/bootstrap.css")
+
+        link(rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.0.0/css/bootstrap.min.css")
+        //OWL Carousel
+        //link(rel="stylesheet" href="assets/css/owl.carousel.min.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
+        //Themify Icons
+        //link(rel="stylesheet" href="assets/css/themify-icons.css")
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css")
+        //Your custom styles (optional)
+        link(rel="stylesheet" href="/assets/css/style.css")
+
+    body#pageID
+        //Header Menu
+        header#header
+            //Top Menu
+            .header-top
+                .container
+                    .row.align-items-center
+                        .col-lg-6.col-sm-6.col-4.header-top-right.no-padding
+                            a(href="tel:+98 918 361 9290")
+                                span.lnr.lnr-phone-handset
+                                span.text 9290 361 918 98+
+                            a(href="mailto:support@colorlib.com")
+                                span.lnr.lnr-envelope
+                                span.text info@imensite.com
+                        .col-lg-6.col-sm-6.col-8.header-top-left.no-padding
+                            ul.mt-1
+                                li
+                                    a(href="#")
+                                        i.ti-facebook
+                                li
+                                    a(href="#")
+                                        i.ti-twitter
+                                li
+                                    a(href="#")
+                                        i.ti-dribbble
+                                li
+                                    a(href="#")
+                                        i.ti-instagram
+                                li
+                                    a(href="#")
+                                        i.ti-pinterest
+            //my main menu
+            .header
+                .container
+                    nav.navbar.navbar-expand-lg.bg-white.navbar-light.mx-xl-auto.py-3
+
+                        a.navbar-brand(href="#")
+                            img(src="/images/ias-logo.png" alt="imensite" width="" height="40")
+                        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#mainMenuCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+                            span.navbar-toggler-icon
+                        #mainMenuCollapse.collapse.navbar-collapse
+                            ul.navbar-nav.ml-auto
+                                li.nav-item.active
+                                    a.nav-link(href="#") صفحه اصلی
+                                li.nav-item
+                                    a.nav-link(href="#") خدمات
+                                li.nav-item
+                                    a.nav-link(href="#") مقالات
+                                li.nav-item.dropdown
+                                    a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown") فروشگاه
+                                    .dropdown-menu
+                                        a.dropdown-item(href="#") سبد خرید
+                                        a.dropdown-item.active(href="#") حساب کاربری
+                                        a.dropdown-item(href="#") پیگیری خرید
+                            #menuSearch.ml-auto
+                                form.course_search_form(action="#")
+                                    input#searchField.w-100.w-lg-auto.pl-3(type="search" placeholder="جستجو")
+                                    span.ti-search.text-muted
+        //Hero Banner
+        section#home.banner-area.position-relative
+            .overlay.overlay-bg
+            .container
+                .row.fullscreen.d-flex.align-items-center.justify-content-between(style={height: '669px'})
+                    .banner-content.col-lg-9.col-md-12
+                        h1.text-uppercase
+                            | بهترین روش یادگیری،
+                            br
+                            | به صورت ماندگار و دوست داشتنی
+                        p.py-2.mb-2.text-muted
+                            | ما با ارائه با کیفیت‌ترین دوره‌های آموزشی و مؤثرترین روش‌های آموزش،
+                            br
+                            | تضمین می‌کنیم که هر دوره آموزش‌های ما برای شما کاربردی و مفید خواهد بود.
+                        a.primary-btn(href="#") شروع آموزش
+        //Learning Plane
+        section.feature-area
+            .container
+                .row
+                    .col-lg-4
+                        .single-feature
+                            .title
+                                h4 برنامه نویسی و توسعه وب
+                            .desc-wrap
+                                p
+                                    | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                a(href="#") شروع آموزش
+                    .col-lg-4
+                        .single-feature
+                            .title
+                                h4 بازاریابی دیجیتالی
+                            .desc-wrap
+                                p
+                                    | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                a(href="#") شروع آموزش
+                    .col-lg-4
+                        .single-feature
+                            .title
+                                h4 رباتیک و مکانیک
+                            .desc-wrap
+                                p
+                                    | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                a(href="#") شروع آموزش
+        //Course Finder
+        section.section.section-top-gap
+            .container
+                .text-center
+                    h2.section-title انتخاب دوره آموزشی
+                    p.mb-0 دوره آموزشی مورد نظر خود را در نتایج زیر پیدا کنید.
+            .container
+                .row
+                    .col
+                        .course_search
+                            form.course_search_form.d-flex.flex-md-row.flex-column.align-items-start.justify-content-between(action="#")
+                                div
+                                    input.course_input(type="text" placeholder="دوره" required="required")
+                                div
+                                    input.course_input(type="text" placeholder="سطح" required="required")
+                                button.course_button
+                                    span جستجو دوره آموزشی
+                                    span.button_arrow
+                                        i.fa.fa-angle-left(aria-hidden="true")
+        //Course Slider
+        section#postCarousel.container
+            .owl-carousel
+                //Card 01
+                .card.bg-light.border-0
+                    a(href="#")
+                        img.card-img-top(src="/images/course_1.jpg" alt="Card image")
+                    .card-body
+                        .card-body-feature
+                            .text-muted قیمت:
+                                span.ml-1.text-warnin 20 هزار تومان
+                            div
+                                a.btn.btn-warning.text-white(href="#") اعضای ویژه
+                        h4.card-title.h5 آموزش کامل جاوا اسکریپت
+                        a(href="#")
+                            p.card-text.text-muted در طول این دوره به طور کامل با جاوا اسکریپت آشنا می‌شوید و پس از گذراندن این دوره توانایی کامل ساخت اسکریپت های تحت وب با این زبان را خواهید داشت.
+                        .course-category
+                            a.ti-palette.active(href="#" data-toggle="tooltip" data-placement="top" title="طراحی و گرافیک")
+                            a.ti-bar-chart(href="#" data-toggle="tooltip" data-placement="top" title="بورس و دانش مالی")
+                            a.ti-wordpress(href="#" data-toggle="tooltip" data-placement="top" title="وردپرس")
+                            a.ti-html5(href="#" data-toggle="tooltip" data-placement="top" title="برنامه نویسی")
+                            a.ti-flickr-alt(href="#" data-toggle="tooltip" data-placement="top" title="رباتیک")
+                            a.ti-server(href="#" data-toggle="tooltip" data-placement="top" title="BIG DATA")
+                            a.ti-briefcase(href="#" data-toggle="tooltip" data-placement="top" title="مدیریت")
+                        .card-footer
+                            .d-flex.flex-row.align-items-center
+                                a(href="#")
+                                    img.rounded-circle(src="/images/featured_author.jpg" alt="author")
+                                small.ml-2 مدرس:
+                                a(href="#")
+                                    span.ml-1 کسری کرمی
+                            div
+                                p.text-muted.mb-0(data-toggle="popover" data-trigger="hover" data-placement="top" title="تعداد رای این محصول" data-content="از 120 رای دهنده به این محصول 96 نفر آن را مناسب برای خرید دانسته و به دیگران توصیه کرده‌اند.") 137 فروش
+                //Card 02
+                .card.bg-light.border-0
+                    a(href="#")
+                        img.card-img-top(src="/images/course_2.jpg" alt="Card image")
+                    .card-body
+                        .card-body-feature
+                            div.text-muted قیمت:
+                                span.ml-1.text-warning 20 هزار تومان
+                            div
+                                a.btn.btn-warning.text-white(href="#") 30% تخفیف
+                        a(href="#")
+                            h4.card-title.h5 آموزش مقدماتی جاوا اسکریپت
+                        a(href="#")
+                            p.card-text.text-muted بهینه سازی سایت یا سئو مهمترین اصل در دیده شدن و ضروری ترین اقدام برای رشد کسب و کار شماست. این دوره رو از دست ندید.
+                        .course-category
+                            a.ti-palette(href="#" data-toggle="tooltip" data-placement="top" title="طراحی و گرافیک")
+                            a.ti-bar-chart.active(href="#" data-toggle="tooltip" data-placement="top" title="بورس و دانش مالی")
+                            a.ti-wordpress(href="#" data-toggle="tooltip" data-placement="top" title="وردپرس")
+                            a.ti-html5(href="#" data-toggle="tooltip" data-placement="top" title="برنامه نویسی")
+                            a.ti-flickr-alt(href="#" data-toggle="tooltip" data-placement="top" title="رباتیک")
+                            a.ti-server(href="#" data-toggle="tooltip" data-placement="top" title="BIG DATA")
+                            a.ti-briefcase(href="#" data-toggle="tooltip" data-placement="top" title="مدیریت")
+                        .card-footer
+                            .d-flex.flex-row.align-items-center
+                                a(href="#")
+                                    img.rounded-circle(src="/images/course_author_2.jpg" alt="author")
+                                small.ml-2 مدرس:
+                                a(href="#")
+                                    span.ml-1 احسان رحامی
+                            div
+                                p.text-muted.mb-0(data-toggle="popover" data-trigger="hover" data-placement="top" title="تعداد رای این محصول" data-content="از 120 رای دهنده به این محصول 96 نفر آن را مناسب برای خرید دانسته و به دیگران توصیه کرده‌اند.") 114 فروش
+                //Card 03
+                .card.bg-light.border-0
+                    a(href="#")
+                        img(src="/images/course_3.jpg" alt="Card image")
+                    .card-body
+                        .card-body-feature
+                            .text-muted قیمت:
+                                span.ml-1.text-warning 20 هزار تومان
+                            div
+                                a.btn.btn-warning.text-white(href="#") محبوب
+                        a(href="#")
+                            h4.card-title.h5 طراحی سایت استاتیک
+                        a(href="#")
+                            p.card-text.text-muted جها آشنایی با جاوا اسکریپت و آموزش صحیح این زبان حتما این دوره رو که کاملا رایگان هست مشاهده کنید و تمرینات اون رو انجام بدید.
+                        .course-category
+                            a.ti-palette(href="#" data-toggle="tooltip" data-placement="top" title="طراحی و گرافیک")
+                            a.ti-bar-chart(href="#" data-toggle="tooltip" data-placement="top" title="بورس و دانش مالی")
+                            a.ti-wordpress.active(href="#" data-toggle="tooltip" data-placement="top" title="وردپرس")
+                            a.ti-html5(href="#" data-toggle="tooltip" data-placement="top" title="برنامه نویسی")
+                            a.ti-flickr-alt(href="#" data-toggle="tooltip" data-placement="top" title="رباتیک")
+                            a.ti-server(href="#" data-toggle="tooltip" data-placement="top" title="BIG DATA")
+                            a.ti-briefcase(href="#" data-toggle="tooltip" data-placement="top" title="مدیریت")
+                        .card-footer
+                            .d-flex.flex-row.align-items-center
+                                a(href="#")
+                                    img.rounded-circle(src="/images/featured_author.jpg" alt="author")
+                                a(href="#")
+                                    small.ml-2 مدرس:
+                                    span.ml-1 کسری کرمی
+                            div
+                                p.text-muted.mb-0(data-toggle="popover" data-trigger="hover" data-placement="top" title="تعداد رای این محصول" data-content="از 120 رای دهنده به این محصول 96 نفر آن را مناسب برای خرید دانسته و به دیگران توصیه کرده‌اند.") 108 فروش
+                //Card 04
+                .card.bg-light.border-0
+                    a(href="#")
+                        img.card-img-top(src="/images/course_4.jpg" alt="Card image")
+                    .card-body
+                        .card-body-feature
+                            .text-muted قیمت:
+                                span.ml-1.text-warning 20 هزار تومان
+                            div
+                                a.btn.btn-warning.text-white(href="#") محبوب
+                        a(href="#")
+                            h4.card-title.h5 بهینه سازی سایت (سئو)
+                        a(href="#")
+                            p.card-text.text-muted جهت آشنایی با جاوا اسکریپت و آموزش صحیح این زبان حتما این دوره رو که کاملا رایگان هست مشاهده کنید و تمرینات اون رو انجام بدید.
+                        .course-category
+                            a.ti-palette(href="#" data-toggle="tooltip" data-placement="top" title="طراحی و گرافیک")
+                            a.ti-bar-chart(href="#" data-toggle="tooltip" data-placement="top" title="بورس و دانش مالی")
+                            a.ti-wordpress(href="#" data-toggle="tooltip" data-placement="top" title="وردپرس")
+                            a.ti-html5.active(href="#" data-toggle="tooltip" data-placement="top" title="برنامه نویسی")
+                            a.ti-flickr-alt(href="#" data-toggle="tooltip" data-placement="top" title="رباتیک")
+                            a.ti-server(href="#" data-toggle="tooltip" data-placement="top" title="BIG DATA")
+                            a.ti-briefcase(href="#" data-toggle="tooltip" data-placement="top" title="مدیریت")
+                        .card-footer
+                            .d-flex.flex-row.align-items-center
+                                a(href="#")
+                                    img.rounded-circle(src="/images/course_author_3.jpg" alt="author")
+                                a(href="#")
+                                    small.ml-2 مدرس:
+                                    span.ml-1 فرزانه ملک‌یاری
+                            div
+                                p.text-muted.mb-0(data-toggle="popover" data-trigger="hover" data-placement="top" title="تعداد رای این محصول" data-content="از 120 رای دهنده به این محصول 96 نفر آن را مناسب برای خرید دانسته و به دیگران توصیه کرده‌اند.") 273 فروش
+                //Card 05
+                .card.bg-light.border-0
+                    a(href="#")
+                        img.card-img-top(src="/images/course_5.jpg" alt="Card image")
+                    .card-body
+                        .card-body-feature
+                            .text-muted قیمت:
+                                span.ml-1.text-warning 20 هزار تومان
+                            div
+                                a.btn.btn-warning.text-white(href="#") محبوب
+                        a(href="#")
+                            h4.card-title.h5 طراحی صنعتی
+                        a(href="#")
+                            p.card-text.text-muted جهت آشنایی با جاوا اسکریپت و آموزش صحیح این زبان حتما این دوره رو که کاملا رایگان هست مشاهده کنید و تمرینات اون رو انجام بدید.
+                        .course-category
+                            a.ti-palette(href="#" data-toggle="tooltip" data-placement="top" title="طراحی و گرافیک")
+                            a.ti-bar-chart(href="#" data-toggle="tooltip" data-placement="top" title="بورس و دانش مالی")
+                            a.ti-wordpress(href="#" data-toggle="tooltip" data-placement="top" title="وردپرس")
+                            a.ti-html5(href="#" data-toggle="tooltip" data-placement="top" title="برنامه نویسی")
+                            a.ti-flickr-alt(href="#" data-toggle="tooltip" data-placement="top" title="رباتیک")
+                            a.ti-server.active(href="#" data-toggle="tooltip" data-placement="top" title="BIG DATA")
+                            a.ti-briefcase(href="#" data-toggle="tooltip" data-placement="top" title="مدیریت")
+                        .card-footer
+                            .d-flex.flex-row.align-items-center
+                                a(href="#")
+                                    img.rounded-circle(src="/images/course_author_3.jpg" alt="author")
+                                a(href="#")
+                                    small.ml-2 مدرس:
+                                    span.ml-1 فرزانه ملک‌یاری
+                            div
+                                p.text-muted.mb-0(data-toggle="popover" data-trigger="hover" data-placement="top" title="تعداد رای این محصول" data-content="از 120 رای دهنده به این محصول 96 نفر آن را مناسب برای خرید دانسته و به دیگران توصیه کرده‌اند.") 273 فروش
+                //Card 06
+                .card.bg-light.border-0
+                    a(href="#")
+                        img.card-img-top(src="/images/course_6.jpg" alt="Card image")
+                    .card-body
+                        .card-body-feature
+                            .text-muted قیمت :
+                                span.ml-1.text-warning 20 هزار تومان
+                            div
+                                a.btn.btn-warning.text-white(href="#")  محبوب
+                        a(href="#")
+                            h4.card-title.h5 Data Analytics
+                        a(href="#")
+                            p.card-text.text-muted جهت آشنایی با جاوا اسکریپت و آموزش صحیح این زبان حتما این دوره رو که کاملا رایگان هست مشاهده کنید و تمرینات اون رو انجام بدید.
+                        .course-category
+                            a.ti-palette(href="#" data-toggle="tooltip" data-placement="top" title="طراحی و گرافیک")
+                            a.ti-bar-chart(href="#" data-toggle="tooltip" data-placement="top" title="بورس و دانش مالی")
+                            a.ti-wordpresshref(href="#" data-toggle="tooltip" data-placement="top" title="وردپرس")
+                            a.ti-html5(href="#" data-toggle="tooltip" data-placement="top" title="برنامه نویسی")
+                            a.ti-flickr-alt(href="#" data-toggle="tooltip" data-placement="top" title="رباتیک")
+                            a.ti-server(href="#" data-toggle="tooltip" data-placement="top" title="BIG DATA")
+                            a.ti-briefcase.active(href="#" data-toggle="tooltip" data-placement="top" title="مدیریت")
+                        .card-footer
+                            .d-flex.flex-row.align-items-center
+                                a(href="#")
+                                    img.rounded-circle(src="/images/course_author_3.jpg" alt="author")
+                                a(href="#")
+                                    small.ml-2 مدرس:
+                                    span.ml-1 فرزانه ملک‌یاری
+                            div
+                                p.text-muted.mb-0(data-toggle="popover" data-trigger="hover" data-placement="top" title="تعداد رای این محصول" data-content="از 120 رای دهنده به این محصول 96 نفر آن را مناسب برای خرید دانسته و به دیگران توصیه کرده‌اند.") 273 فروش
+        //3 Pieces Information
+        section.container.section-top-gap
+            .row
+                //Col 1 - why chose us
+                .col-lg-4
+                    .section.mb-5.pb-0
+                        .section-title.h2 مزایای مجموعه‌های ما
+                    //accordion
+                    #iasAccordion.accordion
+                        //accordion 1
+                        .card
+                            .card-header
+                                h2.mb-0
+                                    button.btn.btn-link.none-decoration(type="button" data-toggle="collapse" data-target="#collapseOne")
+                                        p هدف‌دهی جهت بهبود آموزش
+                                        i.fa.fa-angle-down(aria-hidden="true")
+                            div#collapseOne.collapse.show(data-parent="#iasAccordion")
+                                .card-body
+                                    | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                        //accordion 2
+                        .card
+                            .card-header
+                                h2.mb-0
+                                    button.btn.btn-link.none-decoration(type="button" data-toggle="collapse" data-target="#collapseTwo")
+                                        p پنل پیگیری آموزش و آزمون
+                                        i.fa.fa-angle-down(aria-hidden="true")
+                            div#collapseTwo.collapse(data-parent="#iasAccordion")
+                                .card-body
+                                    | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                        //accordion 3
+                        .card
+                            .card-header
+                                h2.mb-0
+                                    button.btn.btn-link.none-decoration(type="button" data-toggle="collapse" data-target="#collapseThree")
+                                        p خرید دوره آموزشی با دوستان
+                                        i.fa.fa-angle-down(aria-hidden="true")
+                            div#collapseThree.collapse(data-parent="#iasAccordion")
+                                .card-body
+                                    | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                        //accordion 4
+                        .card
+                            .card-header
+                                h2.mb-0
+                                    button.btn.btn-link.none-decoration(type="button" data-toggle="collapse" data-target="#collapseFour")
+                                        p ارائه مدرک معتبر بین‌المللی
+                                        i.fa.fa-angle-down(aria-hidden="true")
+                            div#collapseFour.collapse(data-parent="#iasAccordion")
+                                .card-body
+                                    | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                //Col 2 - last events
+                .col-lg-4.mt-5.mt-lg-0
+                    .section.mb-5.pb-0
+                        .section-title.h2 کارگاه‌های آموزشی
+                    //event 01
+                    .event.d-flex.justify-content-start.align-items-start
+                        //event date box
+                        .event_date.d-flex.flex-column.align-items-center.justify-content-center
+                            .event_day 18
+                            .event_month بهمن
+                        //event name
+                        .event_body
+                            .event_title
+                                a(href="#") کارگاه رایگان داده‌کاوی ابری
+                            .event_subtitle مکان: ساختمان شماره 3
+                    //event 02
+                    .event.d-flex.justify-content-start.align-items-start
+                        //event date box
+                        .event_date.d-flex.flex-column.align-items-center.justify-content-center
+                            .event_day 25
+                            .event_month بهمن
+                        //event name
+                        .event_body
+                            .event_title
+                                a(href="#") کارگاه رایگان بیگ‌دیتا
+                            .event_subtitle مکان: ساختمان شماره 2
+                    //event 03
+                    .event.d-flex.justify-content-start.align-items-start
+                        //event date box
+                        .event_date.d-flex.flex-column.align-items-center.justify-content-center
+                            .event_day 2
+                            .event_month اسفند
+                        //event name
+                        .event_body
+                            .event_title
+                                a(href="#") کارگاه رایگان چه کسی سئو نیاز دارد؟
+                            .event_subtitle مکان: ساختمان شماره 2
+                    //event 04
+                    .event.d-flex.justify-content-start.align-items-start
+                        //event date box
+                        .event_date.d-flex.flex-column.align-items-center.justify-content-center
+                            .event_day 9
+                            .event_month اسفند
+                        //event name
+                        .event_body
+                            .event_title
+                                a(href="#") کارگاه رایگان ترفندهای امنیتی
+                            .event_subtitle مکان: ساختمان شماره 1
+                    //event 05
+                    .event.d-flex.justify-content-start.align-items-start
+                        //event date box
+                        .event_date.d-flex.flex-column.align-items-center.justify-content-center
+                            .event_day 16
+                            .event_month اسفند
+                        //event name
+                        .event_body
+                            .event_title
+                                a(href="#") کارگاه رایگان تعامل انسان و ماشین
+                            .event_subtitle مکان: ساختمان شماره 3
+                //Col 3 - last news
+                .col-lg-4.mt-5.mt-lg-0
+                    .section.mb-5.pb-0
+                        .section-title.h2 آخرین اخبار
+
+                        //news
+                    .news
+                        // News 01
+                        .news_post
+                            .news_post_image
+                                img(src="/images/news_1.jpg" alt="https://unsplash.com/@beccatapert")
+                            .news_post_body
+                                .news_post_date دوشنبه 8 بهمن 1397
+                                .news_post_title
+                                    a(href="news.html") پایان راه صفحه ساز‌های وردپرس
+                                .news_post_author نویسنده:
+                                    a.ml-2(href="#") کسری کرمی
+                        // News 02
+                        .news_post
+                            .news_post_image
+                                img(src="/images/news_2.jpg" alt="https://unsplash.com/@nbb_photos")
+                            .news_post_body
+                                .news_post_date یک‌شنبه 4 بهمن 1397
+                                .news_post_title
+                                    a(href="news.html") پول‌های مجازی غیر مجاز است
+                                .news_post_author نویسنده:
+                                    a.ml-2(href="#") فرزانه ملک‌یاری
+                        // News 03
+                        .news_post
+                            .news_post_image
+                                img(src="/images/news_3.jpg" alt="https://unsplash.com/@rawpixel")
+                            .news_post_body
+                                .news_post_date پنج‌شنبه 27 دی 1397
+                                .news_post_title
+                                    a(href="news.html") ورژن جدید PHP به صورت آزمایشی
+                                .news_post_author نویسنده:
+                                    a.ml-2(href="#") کسری کرمی
+                        // News 04
+                        .news_post
+                            .news_post_image
+                                img(src="/images/news_4.jpg" alt="https://unsplash.com/@jtylernix")
+                            .news_post_body
+                                .news_post_date سه‌شنبه 20 دی 1397
+                                .news_post_title
+                                    a(href="news.html") همکاری دو غول تکنولوژی رباتیک
+                                .news_post_author نویسنده:
+                                    a(href="#") علی خورشیدی
+        //Join US
+        section.join
+            .container
+                .row
+                    .col-lg-10.offset-lg-1
+                        .text-center
+                            h2.section-title همین حالا به ما بپیوندید
+                            p چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+            .button.join_button
+                a(href="#") ثبت نام رایگان
+                    .button_arrow
+                        i.fa.fa-angle-left(aria-hidden="true")
+        //Footer
+        footer.footer
+            .container
+                .row
+                    //About
+                    .col-lg-3.footer_col
+                        .footer_about
+                            .logo_container
+                                a(href="#")
+                                    .logo_content.d-flex.flex-row.align-items-end.justify-content-start
+                                        .logo_img
+                                            img(src="/images/ias-logo.png" alt="logo" width="" height="30")
+                                        .logo_text آموزش
+                            .footer_about_text
+                                p ما بهترین راه پیشرفا را جلوی راه شما قرار داده ایم. این تصمیم شماست تا پیشرفت کنید.
+                            .footer_social
+                                ul
+                                    li
+                                        a(href="#")
+                                            i.fab.fa-google-plus-g
+                                    li
+                                        a(href="#")
+                                            i.fab.fa-pinterest
+                                    li
+                                        a(href="#")
+                                            i.fab.fa-facebook-f
+                                    li
+                                    a(href="#")
+                                        i.fab.fa-twitter
+                            .copyright
+                                | حق کپی‌رایت © 2019 ساخته شده با عشق
+                                i.far.fa-heart
+                                | توسط
+                                br
+                                a.text-center(href="#" target="_blank") گروه برنامه نویسی ایمن سایت
+                    //footer menu
+                    .col-lg-3.footer_col
+                        .footer_links
+                            .footer_title دسترسی سریع
+                            ul.footer_list
+                                li
+                                    a(href="index.html") صفحه اصلی
+                                li
+                                    a(href="about.html") درباره ما
+                                li
+                                    a(href="#") تیم طراح
+                                li
+                                    a(href="#") خدمات
+                                li
+                                    a(href="contact.html") ارتباط با ما
+                                li
+                                    a(href="#") منابع
+                    //footer links
+                    .col-lg-3.footer_col
+                        .footer_links
+                            .footer_title لینک‌های کاربردی
+                            ul.footer_list
+                                li
+                                    a(href="courses.html") دوره‌ها
+                                li
+                                    a(href="#") کارگاه‌ها
+                                li
+                                    a(href="news.html") اخبار
+                                li
+                                    a(href="#") اساتید
+                                li
+                                    a(href="#") دسته‌بندی‌ها
+                                li
+                                    a(href="#") پرسش و پاسخ
+                    //Contact
+                    .col-lg-3.footer_col
+                        .footer_contact
+                            .footer_title ارتباط با ما
+                            .footer_contact_info
+                                .footer_contact_item
+                                    .footer_contact_title آدرس:
+                                    .footer_contact_line ولیعصر، پایین‌تر از میدان ونک، ساختمان خورشید، طبقه سوم، واحد 2
+                                .footer_contact_item
+                                    .footer_contact_title تلفن:
+                                    .footer_contact_line +98 918 361 9290
+                                .footer_contact_item
+                                    .footer_contact_title ایمیل:
+                                    .footer_contact_line info@imensite.com
+        //SCRIPTS
+        //JQuery
+        script(type="text/javascript" src="/assets/js/jquery-3.3.1.min.js")
+        //script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        // Bootstrap tooltips
+        script(type="text/javascript" src="/assets/js/popper.min.js")
+        //script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")
+        // Bootstrap core JavaScript
+        script(type="text/javascript" src="/assets/js/bootstrap.min.js")
+        //script(src="https://cdn.rtlcss.com/bootstrap/v4.0.0/js/bootstrap.min.js")
+        //OWL Carousel
+        script(type="text/javascript" src="/assets/js/owl.carousel.min.js")
+        //script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
+        //My custom script
+        script(type="text/javascript" src="/assets/js/app.js")
+        //auto reload
+        script(src="/reload/reload.js")
+

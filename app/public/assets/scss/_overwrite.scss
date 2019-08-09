@@ -1,0 +1,99 @@
+/*--------------------------------
+        Bootstrap Carousel
+--------------------------------*/
+.form-control,
+.btn,
+.card,
+.card-img-top {
+  border-radius: 0;
+  font-weight: 300;
+}
+
+input[type="submit"] {
+  font-weight: normal;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  border-radius: 0;
+  border: 1px solid rgba(0,0,0,.09);
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  background-color: $orange;
+  &:hover {
+    background-color: $light-orange;
+  }
+}
+
+.nav-link {
+  padding: 0;
+}
+
+.nav-item {
+  padding: 10px 15px;
+  @include transition();
+  .nav-link {
+    color: #2c2b31 !important;
+  }
+  &:hover {
+    background-color: $light-orange;
+    .nav-link {
+      color: white !important;
+    }
+  }
+  &.active {
+    background-color: $light-orange;
+    .nav-link {
+      color: white !important;
+    }
+  }
+}
+
+.text-warning {
+  color: $orange !important;
+}
+
+.bg-warning,
+.btn-warning {
+  background-color: $orange !important;
+}
+
+.btn-warning {
+  border: 1px solid $light-orange;
+}
+
+.bg-light {
+  background-color: $light !important;
+}
+
+/*--------------------------------
+        Overwrite Carousel
+--------------------------------*/
+button.owl-next,
+button.owl-prev {
+  color: white !important;
+  background-color: $light-orange !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  @include transition();
+  &:hover {
+    background-color: $orange !important;
+  }
+}
+
+button.owl-next {
+  position: absolute;
+  left: -161px;
+  top: 50%;
+  @include transition();
+}
+
+button.owl-prev {
+  position: absolute;
+  right: -161px;
+  top: 50%;
+  @include transition();
+}

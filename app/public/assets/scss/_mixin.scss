@@ -1,0 +1,37 @@
+// transition
+@mixin transition($property: all 200ms ease) {
+  -webkit-transition: $property;
+  -moz-transition: $property;
+  -ms-transition: $property;
+  -o-transition: $property;
+  transition: $property;
+}
+
+// transform
+@mixin transform($property: translate(0,-10px)) {
+  -webkit-transform: $property;
+  -moz-transform: $property;
+  -ms-transform: $property;
+  -o-transform: $property;
+  transform: $property;
+}
+
+// box-shadow
+@mixin box-shadow($shadow: 0 0 3px 10px rgba(0,0,0,0.3)) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin text-shadow ($shadow: 0 0 1px rgba(0,0,0,.01)) {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-shadow: $shadow;
+  text-shadow: $shadow;
+}
+
+@mixin background-image ($property) {
+  -webkit-background-image: $property;
+  -moz-background-image: $property;
+  -o-background-image: $property;
+  background-image: $property;
+}

@@ -1,0 +1,219 @@
+doctype html
+html(lang=language dir="rtl")
+
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(http-equiv="x-ua-compatible" content="ie=edge")
+        title
+            if (pageTitle)
+                | #{siteName} - #{pageTitle}
+            else
+                | no title
+
+        //Favicon
+        link(rel="icon" href="/images/favicon.ico" sizes="any")
+
+        //Fontawesome
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css")
+        //Bootstrap RTL core CSS
+        //link(rel="stylesheet" href="assets/css/bootstrap.css")
+
+        link(rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.0.0/css/bootstrap.min.css")
+        //OWL Carousel
+        //link(rel="stylesheet" href="assets/css/owl.carousel.min.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
+        //Themify Icons
+        //link(rel="stylesheet" href="assets/css/themify-icons.css")
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css")
+        //Your custom styles (optional)
+        link(rel="stylesheet" href="/assets/css/style.css")
+        //exact page header code comes here
+        block head
+
+    body(id=pageID)
+
+        //Header Menu
+        header#header
+            //Top Menu
+            .header-top
+                .container
+                    .row.align-items-center
+                        .col-lg-6.col-sm-6.col-4.header-top-right.no-padding
+                            a.d-none.d-md-inline-flex(href="tel:+98 918 361 9290")
+                                span.lnr.lnr-phone-handset
+                                span.text 9290 361 918 98+
+                            a.d-none.d-md-inline-flex(href="mailto:info@imensite.com")
+                                span.lnr.lnr-envelope
+                                span.text info@imensite.com
+                            a(href="/api")
+                                span.lnr.lnr-envelope
+                                span.text.text-info دیتا
+                            a(href="/login")
+                                span.lnr.lnr-envelope
+                                span.text ورود
+                            a(href="/register")
+                                span.lnr.lnr-envelope
+                                span.text.text-warning ثبت‌نام
+                        .col-lg-6.col-sm-6.col-8.header-top-left.no-padding
+                            ul.mt-1
+                                li
+                                    a(href="#")
+                                        i.ti-facebook
+                                li
+                                    a(href="#")
+                                        i.ti-twitter
+                                li
+                                    a(href="#")
+                                        i.ti-dribbble
+                                li
+                                    a(href="#")
+                                        i.ti-instagram
+                                li
+                                    a(href="#")
+                                        i.ti-pinterest
+            //my main menu
+            .header
+                .container
+                    nav.navbar.navbar-expand-lg.bg-white.navbar-light.mx-xl-auto.py-3
+
+                        a.navbar-brand(href="/")
+                            img(src="/images/ias-logo.png" alt="imensite" width="" height="40")
+                        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#mainMenuCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+                            span.navbar-toggler-icon
+                        #mainMenuCollapse.collapse.navbar-collapse
+                            ul.navbar-nav.ml-auto
+                                li.nav-item
+                                    a.nav-link(href="/") صفحه اصلی
+                                li.nav-item
+                                    a.nav-link(href="#") خدمات
+                                li.nav-item
+                                    a.nav-link(href="/article") مقالات
+                                li.nav-item.dropdown
+                                    a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown") فروشگاه
+                                    .dropdown-menu
+                                        a.dropdown-item(href="#") سبد خرید
+                                        a.dropdown-item.active(href="#") حساب کاربری
+                                        a.dropdown-item(href="#") پیگیری خرید
+                            #menuSearch.ml-auto
+                                form.course_search_form(action="#")
+                                    input#searchField.w-100.w-lg-auto.pl-3(type="search" placeholder="جستجو")
+                                    span.ti-search.text-muted
+        // content comes here
+        block content
+        //Join US
+        section.join
+            .container
+                .row
+                    .col-lg-10.offset-lg-1
+                        .text-center
+                            h2.section-title همین حالا به ما بپیوندید
+                            p چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+            .button.join_button
+                a(href="/register") ثبت نام رایگان
+                    .button_arrow
+                        i.fa.fa-angle-left(aria-hidden="true")
+        //Footer
+        footer.footer
+            .container
+                .row
+                    //About
+                    .col-lg-3.footer_col
+                        .footer_about
+                            .logo_container
+                                a(href="#")
+                                    .logo_content.d-flex.flex-row.align-items-end.justify-content-start
+                                        .logo_img.ml-3
+                                            img(src="/images/ias-logo.png" alt="logo" width="" height="30")
+                                        .logo_text.ml-1 آموزش
+                            .footer_about_text
+                                p ما بهترین راه پیشرفا را جلوی راه شما قرار داده ایم. این تصمیم شماست تا پیشرفت کنید.
+                            .footer_social
+                                ul
+                                    li
+                                        a(href="#")
+                                            i.fab.fa-google-plus-g
+                                    li
+                                        a(href="#")
+                                            i.fab.fa-pinterest
+                                    li
+                                        a(href="#")
+                                            i.fab.fa-facebook-f
+                                    li
+                                        a(href="#")
+                                            i.fab.fa-twitter
+                                    li
+                                        a(href="#")
+                                            i.fab.fa-instagram
+                            .copyright
+                                | حق کپی‌رایت © 2019 ساخته شده با عشق
+                                i.far.fa-heart
+                                | توسط
+                                br
+                                a.text-center(href="#" target="_blank") گروه برنامه نویسی ایمن سایت
+                    //footer menu
+                    .col-lg-3.footer_col
+                        .footer_links
+                            .footer_title دسترسی سریع
+                            ul.footer_list
+                                li
+                                    a(href="index.html") صفحه اصلی
+                                li
+                                    a(href="about.html") درباره ما
+                                li
+                                    a(href="#") تیم طراح
+                                li
+                                    a(href="#") خدمات
+                                li
+                                    a(href="contact.html") ارتباط با ما
+                                li
+                                    a(href="#") منابع
+                    //footer links
+                    .col-lg-3.footer_col
+                        .footer_links
+                            .footer_title لینک‌های کاربردی
+                            ul.footer_list
+                                li
+                                    a(href="courses.html") دوره‌ها
+                                li
+                                    a(href="#") کارگاه‌ها
+                                li
+                                    a(href="news.html") اخبار
+                                li
+                                    a(href="#") اساتید
+                                li
+                                    a(href="#") دسته‌بندی‌ها
+                                li
+                                    a(href="#") پرسش و پاسخ
+                    //Contact
+                    .col-lg-3.footer_col
+                        .footer_contact
+                            .footer_title ارتباط با ما
+                            .footer_contact_info
+                                .footer_contact_item
+                                    .footer_contact_title آدرس:
+                                    .footer_contact_line ولیعصر، پایین‌تر از میدان ونک، ساختمان خورشید، طبقه سوم، واحد 2
+                                .footer_contact_item
+                                    .footer_contact_title تلفن:
+                                    .footer_contact_line +98 918 361 9290
+                                .footer_contact_item
+                                    .footer_contact_title ایمیل:
+                                    .footer_contact_line info@imensite.com
+        //SCRIPTS
+        //JQuery
+        script(type="text/javascript" src="/assets/js/jquery-3.3.1.min.js")
+        //script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        // Bootstrap tooltips
+        script(type="text/javascript" src="/assets/js/popper.min.js")
+        //script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")
+        // Bootstrap core JavaScript
+        script(type="text/javascript" src="/assets/js/bootstrap.min.js")
+        //script(src="https://cdn.rtlcss.com/bootstrap/v4.0.0/js/bootstrap.min.js")
+        //OWL Carousel
+        script(type="text/javascript" src="/assets/js/owl.carousel.min.js")
+        //script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
+        //My custom script
+        script(type="text/javascript" src="/assets/js/app.js")
+        //auto reload
+        script(type="text/javascript" src="/reload/reload.js")
+

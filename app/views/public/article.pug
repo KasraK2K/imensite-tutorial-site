@@ -1,0 +1,57 @@
+extends layout
+
+block content
+    // Course Finder
+    section.section.section-top-gap.mt-5.pt-5
+        .container.mt-5.pt-5
+            .text-center
+                h2.section-title انتخاب دوره آموزشی
+                p.mb-0 دوره آموزشی مورد نظر خود را در نتایج زیر پیدا کنید.
+        .container
+            .row
+                .col
+                    .course_search
+                        form.course_search_form.d-flex.flex-md-row.flex-column.align-items-start.justify-content-between(action="#")
+                            div
+                                input.course_input(type="text" placeholder="دوره" required="required")
+                            div
+                                input.course_input(type="text" placeholder="سطح" required="required")
+                            button.course_button
+                                span جستجو دوره آموزشی
+                                span.button_arrow
+                                    i.fa.fa-angle-left(aria-hidden="true")
+    // Course Slider
+    section#articleCard.container
+        .card-deck
+            // post card
+            each post in posts
+                .card.bg-light.border-0
+                    a(href="/article/" + post.slug)
+                        img.card-img-top(src="/images/course_1.jpg" alt="Card image")
+                    .card-body
+                        .card-body-feature
+                            .text-muted قیمت:
+                                span.ml-1.text-warnin 20 هزار تومان
+                            div
+                                a.btn.btn-warning.text-white(href="#") اعضای ویژه
+                        a(href="/article/" + post.slug)
+                            h4.card-title.h5 #{post.title}
+                        a(href="/article/" + post.slug)
+                            p.card-text.text-muted #{post.description.substring(0,170)} ...
+                        .course-category
+                            a.ti-palette.active(href="#" data-toggle="tooltip" data-placement="top" title="طراحی و گرافیک")
+                            a.ti-bar-chart(href="#" data-toggle="tooltip" data-placement="top" title="بورس و دانش مالی")
+                            a.ti-wordpress(href="#" data-toggle="tooltip" data-placement="top" title="وردپرس")
+                            a.ti-html5(href="#" data-toggle="tooltip" data-placement="top" title="برنامه نویسی")
+                            a.ti-flickr-alt(href="#" data-toggle="tooltip" data-placement="top" title="رباتیک")
+                            a.ti-server(href="#" data-toggle="tooltip" data-placement="top" title="BIG DATA")
+                            a.ti-briefcase(href="#" data-toggle="tooltip" data-placement="top" title="مدیریت")
+                        .card-footer
+                            .d-flex.flex-row.align-items-center
+                                a(href="#")
+                                    img.rounded-circle(src="/images/featured_author.jpg" alt="author")
+                                small.ml-2 مدرس:
+                                a(href="#")
+                                    span.ml-1 کسری کرمی
+                            div
+                                p.text-muted.mb-0(data-toggle="popover" data-trigger="hover" data-placement="top" title="تعداد رای این محصول" data-content="از 120 رای دهنده به این محصول 96 نفر آن را مناسب برای خرید دانسته و به دیگران توصیه کرده‌اند.") 137 فروش

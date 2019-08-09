@@ -1,0 +1,55 @@
+extends ../layout
+
+block content
+    // Content Header (Page header)
+    .content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1.m-0.text-dark #{pageTitle}
+                // .col end
+                .col-sm-6
+                    ol.breadcrumb.float-sm-left
+                        li.breadcrumb-item
+                            a(href="#") خانه
+                        li.breadcrumb-item.active #{pageTitle}
+    section.content
+        .container-fluid
+            .row
+                .col
+                    .card
+                        .card-header.bg-info.border-transparent
+                            h3.card-title دسته‌بندی‌های منتشر شده
+                            .card-tools
+                                button.btn.btn-tool(type="button" data-widget="collapse")
+                                    i.fa.fa-minus
+                        // .card-header end
+                        .card-body.p-0
+                            .table-responsive
+                                table.table.table-bordered.table-hover.m-0
+                                    thead.thead-light
+                                        tr
+                                            th.align-baseline شماره
+                                            th.align-baseline نام دسته‌بندی
+                                            th.align-baseline نامک دسته‌بندی
+                                            th.align-baseline تنظیمات
+                                    tbody
+                                        each category, i in categories
+                                            tr
+                                                td.align-baseline
+                                                    | #{ i + 1 }
+                                                td.align-baseline
+                                                    | #{ category.name }
+                                                td.align-baseline
+                                                    | #{ category.slug }
+                                                td.align-baseline
+                                                    a.btn.btn-primary.btn-sm.ml-1(href="/dashboard/category/edit/" + category._id) ویرایش
+                                                    form.d-inline-block(method="POST", action="/dashboard/category/delete/" + category._id)
+                                                        input(type="hidden", name="_method", value="DELETE")
+                                                        button.btn.btn-danger.btn-sm.mr-1 حذف
+                            // .table-responsive end
+                        // .card-body end
+                        .card-footer.clearfix
+                            a.btn.btn-sm.btn-success.float-left(href="/dashboard/category/create") ایجاد دسته‌بندی جدید
+                        // .card-footer end
+                    // .card end

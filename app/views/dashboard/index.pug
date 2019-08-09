@@ -1,0 +1,659 @@
+extends layout
+
+block content
+    // Content Header (Page header)
+    .content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1.m-0.text-dark داشبورد
+                // .col end
+                .col-sm-6
+                    ol.breadcrumb.float-sm-left
+                        li.breadcrumb-item
+                            a(href="#") خانه
+                        li.breadcrumb-item.active داشبورد
+                // .col end
+            // .row end
+        // .container-fluid end
+    // .content-header end
+    // Main content
+    section.content
+        .container-fluid
+            // Info boxes
+            .row
+                .col-12.col-sm-6.col-md-3
+                    .info-box
+                        span.info-box-icon.bg-info.elevation-1
+                            i.fa.fa-gear
+                        .info-box-content
+                            span.info-box-text ترافیک Cpu
+                            span.info-box-number
+                                | 10
+                                small %
+                        // .info-box-content end
+                    // .info-box end
+                // .col end
+                .col-12.col-sm-6.col-md-3
+                    .info-box.mb-3
+                        span.info-box-icon.bg-danger.elevation-1
+                            i.fa.fa-google-plus
+                        .info-box-content
+                            span.info-box-text لایک‌ها
+                            span.info-box-number 41,410
+                        // .info-box-content end
+                    // .info-box end
+                // .col end
+                // fix for small devices only
+                .clearfix.hidden-md-up
+                .col-12.col-sm-6.col-md-3
+                    .info-box.mb-3
+                        span.info-box-icon.bg-success.elevation-1
+                            i.fa.fa-shopping-cart
+                        .info-box-content
+                            span.info-box-text فروش
+                            span.info-box-number 760
+                        // .info-box-content end
+                    // .info-box end
+                // .col end
+                .col-12.col-sm-6.col-md-3
+                    .info-box.mb-3
+                        span.info-box-icon.bg-warning.elevation-1
+                            i.fa.fa-users
+                        .info-box-content
+                            span.info-box-text اعضای جدید
+                            span.info-box-number 2,000
+                        // .info-box-content end
+                    // .info-box end
+                // .col end
+            // .row end
+            .row
+                .col-md-12
+                    .card
+                        .card-header
+                            h5.card-title گزارش ماهیانه
+                            .card-tools
+                                button.btn.btn-tool(type="button" data-widget="collapse")
+                                    i.fa.fa-minus
+                                .btn-group
+                                    button.btn.btn-tool.dropdown-toggle(type="button" data-toggle="dropdown")
+                                        i.fa.fa-wrench
+                                    .dropdown-menu.dropdown-menu-left(role="menu")
+                                        a.dropdown-item(href="#") منو اول
+                                        a.dropdown-item(href="#") منو دوم
+                                        a.dropdown-item(href="#") منو سوم
+                                        a.dropdown-divider
+                                        a.dropdown-item(href="#") لینک
+                                button.btn.btn-tool(type="button" data-widget="remove")
+                                    i.fa.fa-times
+                        // .card-header end
+                        .card-body
+                            .row
+                                .col-md-8
+                                    p.text-center
+                                        strong فروش ۱ دی ۱۳۹۷
+                                    .chart
+                                        // Sales Chart Canvas
+                                        canvas#salesChart(height="180" style="height: 180px;")
+                                    // .chart-responsive end
+                                // .col end
+                                .col-md-4
+                                    p.text-center
+                                        strong میزان پیشرفت اهداف
+                                    .progress-group
+                                        | محصولات اضافه شده به سبد خرید
+                                        span.float-left
+                                            b 160
+                                            | /200
+                                        .progress.progress-sm
+                                            .progress-bar.bg-primary(style="width: 80%")
+                                    // .progress-group end
+                                    .progress-group
+                                        | خرید انجام شده
+                                        span.float-left
+                                            b 310
+                                            | /400
+                                        .progress.progress-sm
+                                            .progress-bar.bg-danger(style="width: 75%")
+                                    // .progress-group end
+                                    .progress-group
+                                        span.progress-text بازدید صفحات ویژه
+                                        span.float-left
+                                            b 480
+                                            | /800
+                                        .progress.progress-sm
+                                            .progress-bar.bg-success(style="width: 60%")
+                                    // .progress-group end
+                                    .progress-group
+                                        | سوالات ارسالی
+                                        span.float-left
+                                            b 250
+                                            | /500
+                                        .progress.progress-sm
+                                            .progress-bar.bg-warning(style="width: 50%")
+                                    // .progress-group end
+                                // .col end
+                            // .row end
+                        // .card-body end
+                        .card-footer
+                            .row
+                                .col-sm-3.col-6
+                                    .description-block
+                                        span.description-percentage.text-success
+                                            i.fa.fa-caret-up
+                                            |  17%
+                                        h5.description-header تومان 35,210.43
+                                        span.description-text کل گردش حساب
+                                    // .description-block end
+                                // .col end
+                                .col-sm-3.col-6
+                                    .description-block.border-right
+                                        span.description-percentage.text-warning
+                                            i.fa.fa-caret-left
+                                            |  0%
+                                        h5.description-header تومان 10,390.90
+                                        span.description-text فروش کل
+                                    // .description-block end
+                                // .col end
+                                .col-sm-3.col-6
+                                    .description-block.border-right
+                                        span.description-percentage.text-success
+                                            i.fa.fa-caret-up
+                                            |  20%
+                                        h5.description-header تومان 24,813.53
+                                        span.description-text سود کل
+                                    // .description-block end
+                                // .col end
+                                .col-sm-3.col-6
+                                    .description-block.border-right
+                                        span.description-percentage.text-danger
+                                            i.fa.fa-caret-down
+                                            |  18%
+                                        h5.description-header 1200
+                                        span.description-text اهداف
+                                    // .description-block end
+                            // .row end
+                        // .card-footer end
+                    // .card end
+                // .col end
+            // .row end
+            // Main row
+            .row
+                // Left col
+                .col-md-8
+                    // MAP & BOX PANE
+                    .card
+                        .card-header
+                            h3.card-title گزارش بازدیدها
+                            .card-tools
+                                button.btn.btn-tool(type="button" data-widget="collapse")
+                                    i.fa.fa-minus
+                                button.btn.btn-tool(type="button" data-widget="remove")
+                                    i.fa.fa-times
+                        // .card-header end
+                        .card-body.p-0
+                            .d-md-flex
+                                .p-1.flex-1(style="overflow: hidden")
+                                    // Map will be created here
+                                    #world-map-markers(style="height: 325px; overflow: hidden")
+                                .card-pane-right.bg-success.pt-2.pb-2.pl-4.pr-4
+                                    .description-block.mb-4
+                                        .sparkbar.pad(data-color="#fff") 90,70,90,70,75,80,70
+                                        h5.description-header.mt-2 8390
+                                        span.description-text بازدیدها
+                                    // .description-block end
+                                    .description-block.mb-4
+                                        .sparkbar.pad(data-color="#fff") 90,50,90,70,61,83,63
+                                        h5.description-header.mt-2 30%
+                                        span.description-text ارجاعات
+                                    // .description-block end
+                                    .description-block
+                                        .sparkbar.pad(data-color="#fff") 90,50,90,70,61,83,63
+                                        h5.description-header.mt-2 70%
+                                        span.description-text یکتا
+                                    // .description-block end
+                                // .card-pane-right end
+                            // .d-md-flex end
+                        // .card-body end
+                    // .card end
+                    .row
+                        .col-md-6
+                            // DIRECT CHAT
+                            .card.direct-chat.direct-chat-warning
+                                .card-header
+                                    h3.card-title چت مستقیم
+                                    .card-tools
+                                        span.badge.badge-warning(data-toggle="tooltip" title="3 New Messages") 3
+                                        button.btn.btn-tool(type="button" data-widget="collapse")
+                                            i.fa.fa-minus
+                                        button.btn.btn-tool(type="button" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle")
+                                            i.fa.fa-comments
+                                        button.btn.btn-tool(type="button" data-widget="remove")
+                                            i.fa.fa-times
+                                // .card-header end
+                                .card-body
+                                    // Conversations are loaded here
+                                    .direct-chat-messages
+                                        // Message. Default to the left
+                                        .direct-chat-msg
+                                            .direct-chat-info.clearfix
+                                                span.direct-chat-name.float-left حسام موسوی
+                                                span.direct-chat-timestamp.float-right 23 Jan 2:00 pm
+                                            // .direct-chat-info end
+                                            img.direct-chat-img(src="/admin/dist/img/user1-128x128.jpg" alt="message user image")
+                                            // .direct-chat-img end
+                                            .direct-chat-text
+                                                | واقعا این قالب رایگانه ؟ قابل باور نیست
+                                            // .direct-chat-text end
+                                        // .direct-chat-msg end
+                                        // Message to the right
+                                        .direct-chat-msg.right
+                                            .direct-chat-info.clearfix
+                                                span.direct-chat-name.float-right سارا
+                                                span.direct-chat-timestamp.float-left 23 Jan 2:05 pm
+                                            // .direct-chat-info end
+                                            img.direct-chat-img(src="/admin/dist/img/user3-128x128.jpg" alt="message user image")
+                                            // .direct-chat-img end
+                                            .direct-chat-text
+                                                | بهتره اینو باور کنی :)
+                                            // .direct-chat-text end
+                                        // .direct-chat-msg end
+                                        // Message. Default to the left
+                                        .direct-chat-msg
+                                            .direct-chat-info.clearfix
+                                                span.direct-chat-name.float-left حسام موسوی
+                                                span.direct-chat-timestamp.float-right 23 Jan 5:37 pm
+                                            // .direct-chat-info end
+                                            img.direct-chat-img(src="/admin/dist/img/user1-128x128.jpg" alt="message user image")
+                                            // .direct-chat-img end
+                                            .direct-chat-text
+                                                | میخوام با این قالب یه اپلیکیشن باحال بزنم ؟‌ تو هم همکاری میکنی ؟
+                                            // .direct-chat-text end
+                                        // .direct-chat-msg end
+                                        // Message to the right
+                                        .direct-chat-msg.right
+                                            .direct-chat-info.clearfix
+                                                span.direct-chat-name.float-right سارا
+                                                span.direct-chat-timestamp.float-left 23 Jan 6:10 pm
+                                            // .direct-chat-info end
+                                            img.direct-chat-img(src="/admin/dist/img/user3-128x128.jpg" alt="message user image")
+                                            // .direct-chat-img end
+                                            .direct-chat-text
+                                                | اره حتما
+                                            // .direct-chat-text end
+                                        // .direct-chat-msg end
+                                    // .direct-chat-messages end
+                                    // Contacts are loaded here
+                                    .direct-chat-contacts
+                                        ul.contacts-list
+                                            li
+                                                a(href="#")
+                                                    img.contacts-list-img(src="/admin/dist/img/user1-128x128.jpg")
+                                                    .contacts-list-info
+                                                        span.contacts-list-name
+                                                            | Count Dracula
+                                                            small.contacts-list-date.float-right 2/28/2015
+                                                        span.contacts-list-msg How have you been? I was...
+                                                    // .contacts-list-info end
+                                            // End Contact Item
+                                            li
+                                                a(href="#")
+                                                    img.contacts-list-img(src="/admin/dist/img/user7-128x128.jpg")
+                                                    .contacts-list-info
+                                                        span.contacts-list-name
+                                                            | Sarah Doe
+                                                            small.contacts-list-date.float-right 2/23/2015
+                                                        span.contacts-list-msg I will be waiting for...
+                                                    // .contacts-list-info end
+                                            // End Contact Item
+                                            li
+                                                a(href="#")
+                                                    img.contacts-list-img(src="/admin/dist/img/user3-128x128.jpg")
+                                                    .contacts-list-info
+                                                        span.contacts-list-name
+                                                            | Nadia Jolie
+                                                            small.contacts-list-date.float-right 2/20/2015
+                                                        span.contacts-list-msg I'll call you back at...
+                                                    // .contacts-list-info end
+                                            // End Contact Item
+                                            li
+                                                a(href="#")
+                                                    img.contacts-list-img(src="/admin/dist/img/user5-128x128.jpg")
+                                                    .contacts-list-info
+                                                        span.contacts-list-name
+                                                            | Nora S. Vans
+                                                            small.contacts-list-date.float-right 2/10/2015
+                                                        span.contacts-list-msg Where is your new...
+                                                    // .contacts-list-info end
+                                            // End Contact Item
+                                            li
+                                                a(href="#")
+                                                    img.contacts-list-img(src="/admin/dist/img/user6-128x128.jpg")
+                                                    .contacts-list-info
+                                                        span.contacts-list-name
+                                                            | John K.
+                                                            small.contacts-list-date.float-right 1/27/2015
+                                                        span.contacts-list-msg Can I take a look at...
+                                                    // .contacts-list-info end
+                                            // End Contact Item
+                                            li
+                                                a(href="#")
+                                                    img.contacts-list-img(src="/admin/dist/img/user8-128x128.jpg")
+                                                    .contacts-list-info
+                                                        span.contacts-list-name
+                                                            | Kenneth M.
+                                                            small.contacts-list-date.float-right 1/4/2015
+                                                        span.contacts-list-msg Never mind I found...
+                                                    // .contacts-list-info end
+                                            // End Contact Item
+                                        // .contacts-list end
+                                    // .direct-chat-pane end
+                                // .card-body end
+                                .card-footer
+                                    form(action="#" method="post")
+                                        .input-group
+                                            input.form-control(type="text" name="message" placeholder="تایپ پیام ...")
+                                            span.input-group-append
+                                                button.btn.btn-warning(type="button") ارسال
+                                // .card-footer end
+                            // .direct-chat end
+                        // .col end
+                        .col-md-6
+                            // USERS LIST
+                            .card
+                                .card-header
+                                    h3.card-title آخرین اعضا
+                                    .card-tools
+                                        span.badge.badge-danger 8 پیام جدید
+                                        button.btn.btn-tool(type="button" data-widget="collapse")
+                                            i.fa.fa-minus
+                                        button.btn.btn-tool(type="button" data-widget="remove")
+                                            i.fa.fa-times
+                                // .card-header end
+                                .card-body.p-0
+                                    ul.users-list.clearfix
+                                        li
+                                            img(src="/admin/dist/img/user1-128x128.jpg" alt="User Image")
+                                            a.users-list-name.mt-2(href="#") حسام موسوی
+                                            span.users-list-date امروز
+                                        li
+                                            img(src="/admin/dist/img/user8-128x128.jpg" alt="User Image")
+                                            a.users-list-name.mt-2(href="#") ایمان
+                                            span.users-list-date دیروز
+                                        li
+                                            img(src="/admin/dist/img/user7-128x128.jpg" alt="User Image")
+                                            a.users-list-name.mt-2(href="#") فاطمه
+                                            span.users-list-date ۱۷ اسفند
+                                        li
+                                            img(src="/admin/dist/img/user6-128x128.jpg" alt="User Image")
+                                            a.users-list-name.mt-2(href="#") جان
+                                            span.users-list-date ۱۴ اسفند
+                                        li
+                                            img(src="/admin/dist/img/user2-160x160.jpg" alt="User Image")
+                                            a.users-list-name.mt-2(href="#") محمد
+                                            span.users-list-date ۱۲ دی
+                                        li
+                                            img(src="/admin/dist/img/user5-128x128.jpg" alt="User Image")
+                                            a.users-list-name.mt-2(href="#") سارا
+                                            span.users-list-date ۱۲ دی
+                                        li
+                                            img(src="/admin/dist/img/user4-128x128.jpg" alt="User Image")
+                                            a.users-list-name.mt-2(href="#") مریم
+                                            span.users-list-date ۱۲ دی
+                                        li
+                                            img(src="/admin/dist/img/user3-128x128.jpg" alt="User Image")
+                                            a.users-list-name.mt-2(href="#") نادیا
+                                            span.users-list-date ۱۱ دی
+                                    // .users-list end
+                                // .card-body end
+                                .card-footer.text-center
+                                    a(href="#") مشاهده همه کاربران
+                                // .card-footer end
+                            // .card end
+                        // .col end
+                    // .row end
+                    // TABLE: LATEST ORDERS
+                    .card
+                        .card-header.border-transparent
+                            h3.card-title آخرین سفارشات
+                            .card-tools
+                                button.btn.btn-tool(type="button" data-widget="collapse")
+                                    i.fa.fa-minus
+                                button.btn.btn-tool(type="button" data-widget="remove")
+                                    i.fa.fa-times
+                        // .card-header end
+                        .card-body.p-0
+                            .table-responsive
+                                table.table.m-0
+                                    thead
+                                        tr
+                                            th ای دی محصول
+                                            th محصول
+                                            th وضعیت
+                                            th محبوبیت
+                                    tbody
+                                        tr
+                                            td
+                                                a(href="pages/examples/invoice.html") OR9842
+                                            td بازی ندای وظیفه ۱۰
+                                            td
+                                                span.badge.badge-success ارسال شده
+                                            td
+                                                .sparkbar(data-color="#00a65a" data-height="20") 90,80,90,-70,61,-83,63
+                                        tr
+                                            td
+                                                a(href="pages/examples/invoice.html") OR1848
+                                            td تلویزیون هوشمند سامسونگ
+                                            td
+                                                span.badge.badge-warning در حال پردازش
+                                            td
+                                                .sparkbar(data-color="#f39c12" data-height="20") 90,80,-90,70,61,-83,68
+                                        tr
+                                            td
+                                                a(href="pages/examples/invoice.html") OR7429
+                                            td آیفون X max
+                                            td
+                                                span.badge.badge-danger تحویل داده شده
+                                            td
+                                                .sparkbar(data-color="#f56954" data-height="20") 90,-80,90,70,-61,83,63
+                                        tr
+                                            td
+                                                a(href="pages/examples/invoice.html") OR7429
+                                            td تلویزیون هوشمند سامسونگ
+                                            td
+                                                span.badge.badge-info در انتظار
+                                            td
+                                                .sparkbar(data-color="#00c0ef" data-height="20") 90,80,-90,70,-61,83,63
+                                        tr
+                                            td
+                                                a(href="pages/examples/invoice.html") OR1848
+                                            td تلویزیون هوشمند سامسونگ
+                                            td
+                                                span.badge.badge-warning در حال پردازش
+                                            td
+                                                .sparkbar(data-color="#f39c12" data-height="20") 90,80,-90,70,61,-83,68
+                                        tr
+                                            td
+                                                a(href="pages/examples/invoice.html") OR7429
+                                            td آیفون X max
+                                            td
+                                                span.badge.badge-danger تحویل داده شده
+                                            td
+                                                .sparkbar(data-color="#f56954" data-height="20") 90,-80,90,70,-61,83,63
+                                        tr
+                                            td
+                                                a(href="pages/examples/invoice.html") OR9842
+                                            td بازی ندای وظیفه ۱۰
+                                            td
+                                                span.badge.badge-success ارسال شده
+                                            td
+                                                .sparkbar(data-color="#00a65a" data-height="20") 90,80,90,-70,61,-83,63
+                            // .table-responsive end
+                        // .card-body end
+                        .card-footer.clearfix
+                            a.btn.btn-sm.btn-info.float-left(href="javascript:void(0)") سفارش جدید
+                            a.btn.btn-sm.btn-secondary.float-right(href="javascript:void(0)") مشاهده همه سفارشات
+                        // .card-footer end
+                    // .card end
+                // .col end
+                .col-md-4
+                    // Info Boxes Style 2
+                    .info-box.mb-3.bg-warning
+                        span.info-box-icon
+                            i.fa.fa-tag
+                        .info-box-content
+                            span.info-box-text فهرست
+                            span.info-box-number 5,200
+                        // .info-box-content end
+                    // .info-box end
+                    .info-box.mb-3.bg-success
+                        span.info-box-icon
+                            i.fa.fa-heart-o
+                        .info-box-content
+                            span.info-box-text برگزیده‌ها
+                            span.info-box-number 92,050
+                        // .info-box-content end
+                    // .info-box end
+                    .info-box.mb-3.bg-danger
+                        span.info-box-icon
+                            i.fa.fa-cloud-download
+                        .info-box-content
+                            span.info-box-text دانلود
+                            span.info-box-number 114,381
+                        // .info-box-content end
+                    // .info-box end
+                    .info-box.mb-3.bg-info
+                        span.info-box-icon
+                            i.fa.fa-comment-o
+                        .info-box-content
+                            span.info-box-text پیام مستقیم
+                            span.info-box-number 163,921
+                        // .info-box-content end
+                    // .info-box end
+                    .card
+                        .card-header
+                            h3.card-title مرورگر‌ها
+                            .card-tools
+                                button.btn.btn-tool(type="button" data-widget="collapse")
+                                    i.fa.fa-minus
+                                button.btn.btn-tool(type="button" data-widget="remove")
+                                    i.fa.fa-times
+                        // .card-header end
+                        .card-body
+                            .row
+                                .col-md-8
+                                    .chart-responsive
+                                        canvas#pieChart(height="150")
+                                    // .chart-responsive end
+                                // .col end
+                                .col-md-4
+                                    ul.chart-legend.clearfix
+                                        li
+                                            i.fa.fa-circle-o.text-danger
+                                            |  Chrome
+                                        li
+                                            i.fa.fa-circle-o.text-success
+                                            |  IE
+                                        li
+                                            i.fa.fa-circle-o.text-warning
+                                            |  FireFox
+                                        li
+                                            i.fa.fa-circle-o.text-info
+                                            |  Safari
+                                        li
+                                            i.fa.fa-circle-o.text-primary
+                                            |  Opera
+                                        li
+                                            i.fa.fa-circle-o.text-secondary
+                                            |  دیگر
+                                // .col end
+                            // .row end
+                        // .card-body end
+                        .card-footer.bg-white.p-0
+                            ul.nav.nav-pills.flex-column
+                                li.nav-item
+                                    a.nav-link(href="#")
+                                        | ایران
+                                        span.float-left.text-danger
+                                            i.fa.fa-arrow-down.text-sm
+                                            |                         12%
+                                li.nav-item
+                                    a.nav-link(href="#")
+                                        | انگلیس
+                                        span.float-left.text-success
+                                            i.fa.fa-arrow-up.text-sm
+                                            |  4%
+                                li.nav-item
+                                    a.nav-link(href="#")
+                                        | چین
+                                        span.float-left.text-warning
+                                            i.fa.fa-arrow-left.text-sm
+                                            |  0%
+                        // .footer end
+                    // .card end
+                    // PRODUCT LIST
+                    .card
+                        .card-header
+                            h3.card-title محصولات تازه اضافه شده
+                            .card-tools
+                                button.btn.btn-tool(type="button" data-widget="collapse")
+                                    i.fa.fa-minus
+                                button.btn.btn-tool(type="button" data-widget="remove")
+                                    i.fa.fa-times
+                        // .card-header end
+                        .card-body.p-0
+                            ul.products-list.product-list-in-card.pl-2.pr-2
+                                li.item
+                                    .product-img
+                                        img.img-size-50(src="/admin/dist/img/default-150x150.png" alt="Product Image")
+                                    .product-info
+                                        a.product-title(href="javascript:void(0)")
+                                            | تلویزیون سامسونگ
+                                            span.badge.badge-warning.float-left تومان 1800
+                                        span.product-description
+                                            | سامسونگ ۳۲ اینچی، ال ای دی و سالم
+                                // .item end
+                                li.item
+                                    .product-img
+                                        img.img-size-50(src="/admin/dist/img/default-150x150.png" alt="Product Image")
+                                    .product-info
+                                        a.product-title(href="javascript:void(0)")
+                                            | دوچرخه
+                                            span.badge.badge-info.float-left تومان 700
+                                        span.product-description
+                                            | دوچرخه ۲۶، کاملا اسپورت و کوهستانی
+                                // .item end
+                                li.item
+                                    .product-img
+                                        img.img-size-50(src="/admin/dist/img/default-150x150.png" alt="Product Image")
+                                    .product-info
+                                        a.product-title(href="javascript:void(0)")
+                                            | ایکس‌ باکس
+                                            span.badge.badge-danger.float-left
+                                                | تومان 350
+                                        span.product-description
+                                            | کنسول ایکس باکس برای بازی های توپ و باحال
+                                // .item end
+                                li.item
+                                    .product-img
+                                        img.img-size-50(src="/admin/dist/img/default-150x150.png" alt="Product Image")
+                                    .product-info
+                                        a.product-title(href="javascript:void(0)")
+                                            | پلی استیشن 4
+                                            span.badge.badge-success.float-left $399
+                                        span.product-description
+                                            | پلی استیشن ۴ با ۳۰۰ گیگ حافظه داخلی
+                                // .item end
+                        // .card-body end
+                        .card-footer.text-center
+                            a.uppercase(href="javascript:void(0)") نمایش همه محصولات
+                        // .card-footer end
+                    // .card end
+                // .col end
+            // .row end
+        // .container-fluid end
+    // Content Header (Page header) End
+
+block footer
+    // PAGE SCRIPTS
+    script(src="/admin/dist/js/pages/dashboard2.js")

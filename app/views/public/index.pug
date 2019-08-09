@@ -1,0 +1,255 @@
+extends layout
+
+block content
+    //Hero Banner
+    section#home.banner-area.position-relative
+        .overlay.overlay-bg
+        .container
+            .row.fullscreen.d-flex.align-items-center.justify-content-between(style={height: '669px'})
+                .banner-content.col-lg-9.col-md-12
+                    h1.text-uppercase
+                        | بهترین روش یادگیری،
+                        br
+                        | به صورت ماندگار و دوست داشتنی
+                    p.py-2.mb-2.text-muted
+                        | ما با ارائه با کیفیت‌ترین دوره‌های آموزشی و مؤثرترین روش‌های آموزش،
+                        br
+                        | تضمین می‌کنیم که هر دوره آموزش‌های ما برای شما کاربردی و مفید خواهد بود.
+                    a.primary-btn(href="#") شروع آموزش
+    //Learning Plane
+    section.feature-area
+        .container
+            .row
+                .col-lg-4
+                    .single-feature
+                        .title
+                            h4 برنامه نویسی و توسعه وب
+                        .desc-wrap
+                            p
+                                | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                            a(href="#") شروع آموزش
+                .col-lg-4
+                    .single-feature
+                        .title
+                            h4 بازاریابی دیجیتالی
+                        .desc-wrap
+                            p
+                                | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                            a(href="#") شروع آموزش
+                .col-lg-4
+                    .single-feature
+                        .title
+                            h4 رباتیک و مکانیک
+                        .desc-wrap
+                            p
+                                | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                            a(href="#") شروع آموزش
+    //Course Finder
+    section.section.section-top-gap
+        .container
+            .text-center
+                h2.section-title انتخاب دوره آموزشی
+                p.mb-0 دوره آموزشی مورد نظر خود را در نتایج زیر پیدا کنید.
+        .container
+            .row
+                .col
+                    .course_search
+                        form.course_search_form.d-flex.flex-md-row.flex-column.align-items-start.justify-content-between(action="#")
+                            div
+                                input.course_input(type="text" placeholder="دوره" required="required")
+                            div
+                                input.course_input(type="text" placeholder="سطح" required="required")
+                            button.course_button
+                                span جستجو دوره آموزشی
+                                span.button_arrow
+                                    i.fa.fa-angle-left(aria-hidden="true")
+    // Course Slider
+    section#postCarousel.container
+        .owl-carousel
+            // posts cards
+            each post in posts
+                .card.bg-light.border-0
+                    a(href="/article/" + post.slug)
+                        img.card-img-top(src="/images/course_1.jpg" alt="Card image")
+                    .card-body
+                        .card-body-feature
+                            .text-muted قیمت:
+                                span.ml-1.text-warnin 20 هزار تومان
+                            div
+                                a.btn.btn-warning.text-white(href="#") اعضای ویژه
+                        h4.card-title.h5
+                            a(href="/article/" + post.slug) #{post.title}
+                        a(href="/article/" + post.slug)
+                            p.card-text.text-muted.text-justify #{post.description.substring(0,170)} ...
+                        .course-category
+                            a.ti-palette.active(href="#" data-toggle="tooltip" data-placement="top" title="طراحی و گرافیک")
+                            a.ti-bar-chart(href="#" data-toggle="tooltip" data-placement="top" title="بورس و دانش مالی")
+                            a.ti-wordpress(href="#" data-toggle="tooltip" data-placement="top" title="وردپرس")
+                            a.ti-html5(href="#" data-toggle="tooltip" data-placement="top" title="برنامه نویسی")
+                            a.ti-flickr-alt(href="#" data-toggle="tooltip" data-placement="top" title="رباتیک")
+                            a.ti-server(href="#" data-toggle="tooltip" data-placement="top" title="BIG DATA")
+                            a.ti-briefcase(href="#" data-toggle="tooltip" data-placement="top" title="مدیریت")
+                        .card-footer
+                            .d-flex.flex-row.align-items-center
+                                a(href="#")
+                                    img.rounded-circle(src="/images/featured_author.jpg" alt="author")
+                                small.ml-2 مدرس:
+                                a(href="#")
+                                    span.ml-1 کسری کرمی
+                            div
+                                p.text-muted.mb-0(data-toggle="popover" data-trigger="hover" data-placement="top" title="تعداد رای این محصول" data-content="از 120 رای دهنده به این محصول 96 نفر آن را مناسب برای خرید دانسته و به دیگران توصیه کرده‌اند.") 137 فروش
+    //3 Pieces Information
+    section.container.section-top-gap
+        .row
+            //Col 1 - why chose us
+            .col-lg-4
+                .section.mb-5.pb-0
+                    .section-title.h2 مزایای مجموعه‌های ما
+                //accordion
+                #iasAccordion.accordion
+                    //accordion 1
+                    .card
+                        .card-header
+                            h2.mb-0
+                                button.btn.btn-link.none-decoration(type="button" data-toggle="collapse" data-target="#collapseOne")
+                                    p هدف‌دهی جهت بهبود آموزش
+                                    i.fa.fa-angle-down(aria-hidden="true")
+                        div#collapseOne.collapse.show(data-parent="#iasAccordion")
+                            .card-body
+                                | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                    //accordion 2
+                    .card
+                        .card-header
+                            h2.mb-0
+                                button.btn.btn-link.none-decoration(type="button" data-toggle="collapse" data-target="#collapseTwo")
+                                    p پنل پیگیری آموزش و آزمون
+                                    i.fa.fa-angle-down(aria-hidden="true")
+                        div#collapseTwo.collapse(data-parent="#iasAccordion")
+                            .card-body
+                                | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                    //accordion 3
+                    .card
+                        .card-header
+                            h2.mb-0
+                                button.btn.btn-link.none-decoration(type="button" data-toggle="collapse" data-target="#collapseThree")
+                                    p خرید دوره آموزشی با دوستان
+                                    i.fa.fa-angle-down(aria-hidden="true")
+                        div#collapseThree.collapse(data-parent="#iasAccordion")
+                            .card-body
+                                | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                    //accordion 4
+                    .card
+                        .card-header
+                            h2.mb-0
+                                button.btn.btn-link.none-decoration(type="button" data-toggle="collapse" data-target="#collapseFour")
+                                    p ارائه مدرک معتبر بین‌المللی
+                                    i.fa.fa-angle-down(aria-hidden="true")
+                        div#collapseFour.collapse(data-parent="#iasAccordion")
+                            .card-body
+                                | چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+            //Col 2 - last events
+            .col-lg-4.mt-5.mt-lg-0
+                .section.mb-5.pb-0
+                    .section-title.h2 کارگاه‌های آموزشی
+                //event 01
+                .event.d-flex.justify-content-start.align-items-start
+                    //event date box
+                    .event_date.d-flex.flex-column.align-items-center.justify-content-center
+                        .event_day 18
+                        .event_month بهمن
+                    //event name
+                    .event_body
+                        .event_title
+                            a(href="#") کارگاه رایگان داده‌کاوی ابری
+                        .event_subtitle مکان: ساختمان شماره 3
+                //event 02
+                .event.d-flex.justify-content-start.align-items-start
+                    //event date box
+                    .event_date.d-flex.flex-column.align-items-center.justify-content-center
+                        .event_day 25
+                        .event_month بهمن
+                    //event name
+                    .event_body
+                        .event_title
+                            a(href="#") کارگاه رایگان بیگ‌دیتا
+                        .event_subtitle مکان: ساختمان شماره 2
+                //event 03
+                .event.d-flex.justify-content-start.align-items-start
+                    //event date box
+                    .event_date.d-flex.flex-column.align-items-center.justify-content-center
+                        .event_day 2
+                        .event_month اسفند
+                    //event name
+                    .event_body
+                        .event_title
+                            a(href="#") کارگاه رایگان چه کسی سئو نیاز دارد؟
+                        .event_subtitle مکان: ساختمان شماره 2
+                //event 04
+                .event.d-flex.justify-content-start.align-items-start
+                    //event date box
+                    .event_date.d-flex.flex-column.align-items-center.justify-content-center
+                        .event_day 9
+                        .event_month اسفند
+                    //event name
+                    .event_body
+                        .event_title
+                            a(href="#") کارگاه رایگان ترفندهای امنیتی
+                        .event_subtitle مکان: ساختمان شماره 1
+                //event 05
+                .event.d-flex.justify-content-start.align-items-start
+                    //event date box
+                    .event_date.d-flex.flex-column.align-items-center.justify-content-center
+                        .event_day 16
+                        .event_month اسفند
+                    //event name
+                    .event_body
+                        .event_title
+                            a(href="#") کارگاه رایگان تعامل انسان و ماشین
+                        .event_subtitle مکان: ساختمان شماره 3
+            //Col 3 - last news
+            .col-lg-4.mt-5.mt-lg-0
+                .section.mb-5.pb-0
+                    .section-title.h2 آخرین اخبار
+
+                    //news
+                .news
+                    // News 01
+                    .news_post
+                        .news_post_image
+                            img(src="/images/news_1.jpg" alt="https://unsplash.com/@beccatapert")
+                        .news_post_body
+                            .news_post_date دوشنبه 8 بهمن 1397
+                            .news_post_title
+                                a(href="news.html") پایان راه صفحه ساز‌های وردپرس
+                            .news_post_author نویسنده:
+                                a.ml-2(href="#") کسری کرمی
+                    // News 02
+                    .news_post
+                        .news_post_image
+                            img(src="/images/news_2.jpg" alt="https://unsplash.com/@nbb_photos")
+                        .news_post_body
+                            .news_post_date یک‌شنبه 4 بهمن 1397
+                            .news_post_title
+                                a(href="news.html") پول‌های مجازی غیر مجاز است
+                            .news_post_author نویسنده:
+                                a.ml-2(href="#") فرزانه ملک‌یاری
+                    // News 03
+                    .news_post
+                        .news_post_image
+                            img(src="/images/news_3.jpg" alt="https://unsplash.com/@rawpixel")
+                        .news_post_body
+                            .news_post_date پنج‌شنبه 27 دی 1397
+                            .news_post_title
+                                a(href="news.html") ورژن جدید PHP به صورت آزمایشی
+                            .news_post_author نویسنده:
+                                a.ml-2(href="#") کسری کرمی
+                    // News 04
+                    .news_post
+                        .news_post_image
+                            img(src="/images/news_4.jpg" alt="https://unsplash.com/@jtylernix")
+                        .news_post_body
+                            .news_post_date سه‌شنبه 20 دی 1397
+                            .news_post_title
+                                a(href="news.html") همکاری دو غول تکنولوژی رباتیک
+                            .news_post_author نویسنده:
+                                a(href="#") علی خورشیدی

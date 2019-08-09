@@ -1,0 +1,40 @@
+route                                   method          result
+
+/                                       get             root
+/api                                    get             show json sample file [For a feature I will add later]
+
+/article                                get             show all posts
+/article/:slug                          get             show single post with full text and comments
+/article/:slug                          post            write comment [not approved yet]
+
+/register                               get             show user registeration form
+/register                               post            user register process
+
+/login                                  get             show login form
+/login                                  post            login process
+
+/dashboard                              get             show admin panel
+
+/dashboard/post                         get             show all posts
+/dashboard/post/all                     get             show all posts
+/dashboard/post/delete/:id              delete          delete post
+/dashboard/post/create                  get             show create post form
+/dashboard/post/create                  post            create post process
+/dashboard/post/edit/:id                get             update post form
+/dashboard/post/edit/:id                put             update post process
+
+/dashboard/category                     get             show all categories
+/dashboard/category/all                 get             show all categories
+/dashboard/category/delete/:id          delete          delete category
+/dashboard/category/create              get             show create category form
+/dashboard/category/create              post            create category process
+/dashboard/category/edit/:id            get             update category form
+/dashboard/category/edit/:id            put             update category process
+
+/dashboard/comment                      get             show all categories
+/dashboard/comment/all                  get             show all categories
+/dashboard/comment/delete/:id           delete          delete comment
+/dashboard/comment/approve/:id          get             approve comment
+/dashboard/comment/susspend/:id         get             susspend comment
+
+/dashboard/support                      get             uncompleted online chat

@@ -1,0 +1,65 @@
+extends ../public/layout
+block content
+    .mt-5.pt-5
+        .mt-5.pt-5
+            .col-md-8.col-md-offset-2.mx-auto
+                .panel.panel-default
+                    .row
+                        .col-12.d-flex.justify-content-center.mx-auto
+                            .panel-heading.text-center.text-warning.mb-4 فرم ورود به سایت
+                    .panel-body
+                        form(class="form-horizontal",method="POST",action="/login")
+                            if errors
+                                div.px-3
+                                    .form-group
+                                        .col-lg-6.mx-auto.alert.alert-danger.alert-dismissible.fade.show.rounded-0
+                                            ul.m-0.p-0
+                                                each error in errors
+                                                    li=error.msg
+                                            button.close.p-2(type="button" data-dismiss="alert" aria-label="Close")
+                                                span(aria-hidden="true") &times;
+                            if emailError
+                                div.px-3
+                                    .form-group
+                                        .col-lg-6.mx-auto.alert.alert-danger.alert-dismissible.fade.show.rounded-0
+                                            ul.m-0.p-0
+                                                li=emailError
+                                            button.close.p-2(type="button" data-dismiss="alert" aria-label="Close")
+                                                span(aria-hidden="true") &times;
+                            if uniqueEmail
+                                div.px-3
+                                    .form-group
+                                        .col-lg-6.mx-auto.alert.alert-info.alert-dismissible.fade.show.rounded-0
+                                            ul.m-0.p-0
+                                                li=uniqueEmail
+                                            button.close.p-2(type="button" data-dismiss="alert" aria-label="Close")
+                                                span(aria-hidden="true") &times;
+                            if passwordError
+                                div.px-3
+                                    .form-group
+                                        .col-lg-6.mx-auto.alert.alert-danger.alert-dismissible.fade.show.rounded-0
+                                            ul.m-0.p-0
+                                                li=passwordError
+                                            button.close.p-2(type="button" data-dismiss="alert" aria-label="Close")
+                                                span(aria-hidden="true") &times;
+                            if success
+                                div.px-3
+                                    .form-group
+                                        .col-lg-6.mx-auto.alert.alert-success.alert-dismissible.fade.show.rounded-0
+                                            ul.m-0.p-0
+                                                li=success
+                                            button.close.p-2(type="button" data-dismiss="alert" aria-label="Close")
+                                                span(aria-hidden="true") &times;
+                            div
+                                .form-group
+                                    .col-lg-6.mx-auto
+                                        label.col-12.control-label(for="email") آدرس ایمیل
+                                        input#email.form-control.lowercase(type="text",placeholder="نمونه: email@mail.com",name="email" value=(email) ? email : "")
+                            div
+                                .form-group
+                                    .col-lg-6.mx-auto
+                                        label.col-12.control-label(for="password") رمز ورود
+                                        input#password(class="form-control",type="password",placeholder="فقط اعداد و حروف انگلیسی",name="password")
+                            .form-group
+                                .col-md-6.col-md-offset-4.mx-auto
+                                    button.btn.btn-primary ورود

@@ -1,0 +1,69 @@
+extends layout
+
+block head
+    style.
+        section#singlePost.container {
+            margin-top: 200px;
+        }
+
+block content
+    //Course Slider
+    section#singlePost.container
+        .row
+            .col.d-flex.justify-content-center
+                img.img-fluid(src="/images/course_1.jpg" alt="Card image")
+        .row.mt-4
+            .text-muted.w-100.d-flex.justify-content-around.align-items-center
+                span.ml-1.text-warnin قیمت: 20 هزار تومان
+                a.btn.btn-warning.text-white(href="#") اعضای ویژه
+        .row.mt-4
+            h1.card-title.h1.font-weight-bold.mb-5 #{post.title}
+            p.card-text.text-muted !{post.description}
+        .row.mt-4
+            a.mr-3.ti-palette.active(href="#" data-toggle="tooltip" data-placement="top" title="طراحی و گرافیک")
+            a.mr-3.ti-bar-chart(href="#" data-toggle="tooltip" data-placement="top" title="بورس و دانش مالی")
+            a.mr-3.ti-wordpress(href="#" data-toggle="tooltip" data-placement="top" title="وردپرس")
+            a.mr-3.ti-html5(href="#" data-toggle="tooltip" data-placement="top" title="برنامه نویسی")
+            a.mr-3.ti-flickr-alt(href="#" data-toggle="tooltip" data-placement="top" title="رباتیک")
+            a.mr-3.ti-server(href="#" data-toggle="tooltip" data-placement="top" title="BIG DATA")
+            a.mr-3.ti-briefcase(href="#" data-toggle="tooltip" data-placement="top" title="مدیریت")
+        .row.d-flex.align-items-center.mt-4
+            a(href="#")
+                img.rounded-circle(src="/images/featured_author.jpg" alt="author")
+            small.ml-2 مدرس:
+            a(href="#")
+                span.ml-1 کسری کرمی
+            p.badge.badge-info.mb-0.ml-3(data-toggle="popover" data-trigger="hover" data-placement="top" title="تعداد رای این محصول" data-content="از 120 رای دهنده به این محصول 96 نفر آن را مناسب برای خرید دانسته و به دیگران توصیه کرده‌اند.") 137 فروش
+        .container.mt-4
+            each comment in comments
+                .row
+                    p.badge.badge-info.mt-3 #{comment.commenter}
+                    p.col-12 #{comment.comment}
+        .row.mt-3
+            if commentSent
+                .form-group.mb-0
+                    .col-12.alert.alert-success.alert-dismissible.fade.show.rounded-0.mb-0
+                        ul.m-0.p-0
+                            li=commentSent
+                        button.close.p-2(type="button" data-dismiss="alert" aria-label="Close")
+                            span(aria-hidden="true") &times;
+            if errors
+                .form-group.mb-0
+                    .col-12.alert.alert-danger.alert-dismissible.fade.show.rounded-0.mb-0
+                        ul.m-0.p-0
+                            each error in errors
+                                li=error.msg
+                        button.close.p-2(type="button" data-dismiss="alert" aria-label="Close")
+                            span(aria-hidden="true") &times;
+        .row.mt-3
+            form(action="/article/"+post.slug method="POST")
+                .form-group
+                    //label(for="commenter") نام و نام خانوادگی
+                    input#commenter.form-control.bg-light(type="text",placeholder="نام و نام خانوادگی",name="commenter")
+                .form-group
+                    //label(for="comment") متن کامنت
+                    textarea#comment.form-control.bg-light(type="text",placeholder="متن کامنت",name="comment" cols=69, rows=7)
+                .form-group
+                    button.btn.btn-success ارسال دیدگاه
+
+

@@ -1,0 +1,56 @@
+* {
+  @include text-shadow();
+  &::selection {
+    color: white;
+    background-color: $light-orange;
+  }
+}
+
+body, .tooltip, .popover {
+  font-family: IRANSans;
+}
+
+.popover-header {
+  background-color: $darker;
+  color: $light-orange;
+  border-bottom: 1px solid #322C46;
+  border-radius: 0;
+}
+.popover-body {
+  background-color: $dark;
+  color: white;
+}
+.bs-popover-auto[x-placement^=top] .arrow::after, .bs-popover-top .arrow::after {
+  border-top-color: $dark;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $dark;
+}
+
+input,
+select {
+  height: 50px !important;
+  background-color: $light !important;
+  border: none !important;
+  outline: none;
+  //border-bottom: 3px solid $orange !important;
+}
+
+ul {
+  list-style: none;
+}
