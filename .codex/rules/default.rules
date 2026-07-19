@@ -1,0 +1,88 @@
+# The repository owner exclusively controls the Git index and commit history.
+prefix_rule(
+    pattern = ["git", "add"],
+    decision = "forbidden",
+    justification = "Do not stage files. Leave all changes unstaged for the repository owner to review and stage manually.",
+    match = [
+        "git add .",
+        "git add AGENTS.md",
+        "git add --all",
+        "git add -p",
+    ],
+    not_match = [
+        "git status --short",
+        "git diff --check",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "stage"],
+    decision = "forbidden",
+    justification = "Do not stage files through the git stage alias. The repository owner manages the index.",
+    match = ["git stage AGENTS.md"],
+)
+
+prefix_rule(
+    pattern = ["git", "update-index"],
+    decision = "forbidden",
+    justification = "Do not modify the Git index through low-level commands. The repository owner manages staging.",
+    match = [
+        "git update-index --add AGENTS.md",
+        "git update-index --assume-unchanged package.json",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", ["rm", "mv", "reset"]],
+    decision = "forbidden",
+    justification = "Do not use Git commands that write to the index or move repository history. Use normal filesystem edits and leave staging to the repository owner.",
+    match = [
+        "git rm app/old.ts",
+        "git mv app/old.ts app/new.ts",
+        "git reset HEAD AGENTS.md",
+        "git reset --hard HEAD",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "restore", "--staged"],
+    decision = "forbidden",
+    justification = "Do not modify staged state. The repository owner exclusively manages the Git index.",
+    match = ["git restore --staged AGENTS.md"],
+    not_match = ["git restore AGENTS.md"],
+)
+
+prefix_rule(
+    pattern = ["git", "commit"],
+    decision = "forbidden",
+    justification = "Do not create commits. Leave reviewed changes for the repository owner to commit manually.",
+    match = [
+        "git commit -m feature",
+        "git commit --amend",
+        "git commit --no-edit",
+    ],
+    not_match = [
+        "git log -1",
+        "git show HEAD",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "commit-tree"],
+    decision = "forbidden",
+    justification = "Do not create commits through Git plumbing commands. The repository owner owns commit history.",
+    match = ["git commit-tree HEAD^{tree} -m feature"],
+)
+
+prefix_rule(
+    pattern = ["git", ["merge", "cherry-pick", "revert", "rebase", "am"]],
+    decision = "forbidden",
+    justification = "Do not run operations that can create commits or rewrite repository history. Leave history management to the repository owner.",
+    match = [
+        "git merge feature",
+        "git cherry-pick abc123",
+        "git revert abc123",
+        "git rebase main",
+        "git am patch.mbox",
+    ],
+)

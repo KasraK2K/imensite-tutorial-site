@@ -1,0 +1,19 @@
+{
+  "description": "Keep the Git index and commit history under repository-owner control.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^Bash$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.codex/hooks/block-git-writes.mjs\"",
+            "commandWindows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$repoRoot = git rev-parse --show-toplevel; & (Join-Path $repoRoot '.codex/hooks/block-git-writes.ps1')\"",
+            "timeout": 10,
+            "statusMessage": "Checking repository Git-write policy"
+          }
+        ]
+      }
+    ]
+  }
+}

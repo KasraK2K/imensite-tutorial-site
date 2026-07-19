@@ -1,0 +1,4 @@
+interface:
+  display_name: "ImenSite Contributor"
+  short_description: "Build and review the ImenSite TypeScript CMS"
+  default_prompt: "Use $imensite-contributor to implement and verify a change in the ImenSite CMS."
