@@ -18,6 +18,14 @@ block content
                                                     li=error.msg
                                             button.close.p-2(type="button" data-dismiss="alert" aria-label="Close")
                                                 span(aria-hidden="true") &times;
+                            if uniqueEmail
+                                div.px-3
+                                    .form-group
+                                        .col-lg-6.mx-auto.alert.alert-info.alert-dismissible.fade.show.rounded-0
+                                            ul.m-0.p-0
+                                                li=uniqueEmail
+                                            button.close.p-2(type="button" data-dismiss="alert" aria-label="Close")
+                                                span(aria-hidden="true") &times;
                             div
                                 .form-group
                                     .col-lg-6.mx-auto

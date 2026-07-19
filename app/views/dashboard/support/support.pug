@@ -100,10 +100,7 @@ block content
                                 .form-group
                                     label(for="userSupportEmail") ایمیل
                                     input#userSupportEmail.form-control(name="name" type="text" autocomplete="off" placeholder="لطفا ایمیل خود را وارد کنید.")
-                                .form-group
-                                    label(for="userSupportPass") رمز عبور
-                                    input#userSupportPass.form-control(name="password" type="password" autocomplete="off" placeholder="لطفا رمز عبور خود را وارد کنید.")
-                                button.btn.btn-primary(type="submit") ورود
+                                button.btn.btn-primary(type="submit") شروع گفتگو
             .row
                 .col
                     .card
@@ -138,11 +135,9 @@ block footer
 
             $('#userInfo').submit(function (e) {
                 e.preventDefault(); // prevents page reloading
-                var userinfo = {
-                    email: $('#userSupportEmail').val(),
-                    password: $('#userSupportPass').val()
-                }
-                socket.emit('user send info', userinfo);
+                socket.emit('user joins support', {
+                    email: $('#userSupportEmail').val()
+                });
             })
 
             $('form').submit(function(e){

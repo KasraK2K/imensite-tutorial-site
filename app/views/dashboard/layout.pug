@@ -137,7 +137,9 @@ html(lang=language dir="rtl")
                             .image
                                 img.img-circle.elevation-2(src="/images/kasra.png" alt="User Image")
                             .info
-                                a.d-block(href="#") کسری کرمی
+                                span.d-block.text-white #{currentUser ? currentUser.name : ''}
+                                form(method="POST" action="/logout")
+                                    button.btn.btn-link.text-danger.p-0(type="submit") خروج
                         // Sidebar Menu
                         nav.mt-2
                             ul.nav.nav-pills.nav-sidebar.flex-column(data-widget="treeview" role="menu" data-accordion="false")
@@ -299,5 +301,3 @@ html(lang=language dir="rtl")
         script(src="/admin/plugins/chartjs-old/Chart.min.js")
         //block footer code comes here
         block footer
-        //auto reload
-        script(type="text/javascript" src="/reload/reload.js")

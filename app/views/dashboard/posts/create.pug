@@ -68,7 +68,7 @@ block content
                                         label(for="inputPostCategory") دسته‌بندی
                                         select#inputPostCategory.form-control(name="category" multiple="multiple" required)
                                             each category in categories
-                                                option(value=category._id.toString() selected=(category._id.toString() == category_id) ? true : false) #{category.name}
+                                                option(value=category._id.toString() selected=selectedCategoryIds.includes(category._id.toString())) #{category.name}
                                     else
                                         label دسته‌بندی
                                         a.btn.btn-outline-primary.mr-1(href='/dashboard/category/create') هیچ دسته بندی یافت نشد. لطفا ابتدا یک دسته‌بندی ایجاد کنید.

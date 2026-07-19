@@ -44,18 +44,21 @@ block content
                                                     | #{ comment.commenter }
                                                 td.align-baseline
                                                     if (!comment.approved)
-                                                        a.btn.btn-success.btn-sm.ml-1(href="/dashboard/comment/approve/" + comment._id) پذیرفتن دیدگاه
+                                                        form.d-inline-block(method="POST", action="/dashboard/comment/approve/" + comment._id)
+                                                            input(type="hidden", name="_method", value="PATCH")
+                                                            button.btn.btn-success.btn-sm.ml-1 پذیرفتن دیدگاه
                                                         form.d-inline-block(method="POST", action="/dashboard/comment/delete/" + comment._id)
                                                             input(type="hidden", name="_method", value="DELETE")
                                                             button.btn.btn-danger.btn-sm.mr-1 حذف
                                                     else
-                                                        a.btn.btn-outline-warning.btn-sm.ml-1(href="/dashboard/comment/susspend/" + comment._id) بازبینی دیدگاه
+                                                        form.d-inline-block(method="POST", action="/dashboard/comment/suspend/" + comment._id)
+                                                            input(type="hidden", name="_method", value="PATCH")
+                                                            button.btn.btn-outline-warning.btn-sm.ml-1 بازبینی دیدگاه
                                                         form.d-inline-block(method="POST", action="/dashboard/comment/delete/" + comment._id)
                                                             input(type="hidden", name="_method", value="DELETE")
                                                             button.btn.btn-outline-danger.btn-sm.mr-1 حذف
                             // .table-responsive end
                         // .card-body end
                         .card-footer.clearfix
-                            a.btn.btn-sm.btn-success.float-left(href="/dashboard/category/create") ایجاد دسته‌بندی جدید
                         // .card-footer end
                     // .card end

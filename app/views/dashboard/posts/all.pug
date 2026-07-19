@@ -44,7 +44,7 @@ block content
                                                 td.align-baseline
                                                     a.font-weight-bold(href="#") #{ post.slug }
                                                 td.align-baseline
-                                                    each category in categories
+                                                    each category in post.category_id
                                                         a.font-weight-bold.ml-3(href="#") #{ category.name }
                                                 td.align-baseline
                                                     a.btn.btn-primary.btn-sm.ml-1(href="/dashboard/post/edit/" + post._id) ویرایش

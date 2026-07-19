@@ -65,14 +65,14 @@ block content
                                     label(for="inputPostSlug") نامک
                                     input#inputPostSlug.form-control(name="slug" type="text" placeholder="نامک-پست-جدید" value=post.slug)
                                 .form-group
-                                    if categories
+                                    if categories.length
                                         label(for="inputPostCategory") دسته‌بندی
                                         select#inputPostCategory.form-control(name="category" multiple="multiple" required)
                                             each category in categories
-                                                option(value=category._id.toString() selected=(category._id.toString() == post.category_id) ? true : false) #{category.name}
+                                                option(value=category._id.toString() selected=selectedCategoryIds.includes(category._id.toString())) #{category.name}
                                     else
                                         label دسته‌بندی
-                                        a.btn.btn-outline-primary.mr-1(href='٫') هیچ دسته بندی یافت نشد. لطفا ابتدا یک دسته‌بندی ایجاد کنید.
+                                        a.btn.btn-outline-primary.mr-1(href='/dashboard/category/create') هیچ دسته بندی یافت نشد. لطفا ابتدا یک دسته‌بندی ایجاد کنید.
                                 .form-group
                                     label(for="inputPostDescription") متن
                                     textarea#inputPostDescription.form-control(name="description" rows="10" required) #{post.description}
